@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Align;
 
 public class MainMenu extends InputAdapter implements ApplicationListener {
 
@@ -43,7 +44,15 @@ public class MainMenu extends InputAdapter implements ApplicationListener {
                 return false;
             }
         });
-        table.add(button);
+        TextButton button2 = new TextButton("Button 2", skin);
+        button2.addListener(new InputListener() {
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return false;
+            }
+        });
+        table.add(button).pad(10).fillY().align(Align.top);
+        table.row();
+        table.add(button2).pad(10).fillY().align(Align.top);
 
         Table table2 = new Table();
         stage.addActor(table2);
