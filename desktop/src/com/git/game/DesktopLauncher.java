@@ -10,6 +10,8 @@ public class DesktopLauncher {
 		config.setWindowedMode(1280, 720);
 		config.useVsync(true);
 		config.setForegroundFPS(60);
+		config.setWindowedMode(1280, 720);
+		config.setTitle("Git Odyssey");
 		new Lwjgl3Application(new GitOdyssey(), config);
 	}
 }
