@@ -44,7 +44,7 @@ public class SplashScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+        Gdx.gl.glClearColor(21/255f, 30/255f, 43/255f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // Update the progress and move to the next screen when loading is complete

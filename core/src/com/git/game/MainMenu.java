@@ -44,7 +44,7 @@ public class MainMenu implements Screen {
         });
         stage.addActor(introButton);
 
-        TextButton finalButton = new TextButton("Go to final level!",GitOdyssey.gameSkin);
+        TextButton finalButton = new TextButton("Go to game!",GitOdyssey.gameSkin);
         finalButton.setWidth((float)Gdx.graphics.getWidth()/3);
         finalButton.setHeight((float)Gdx.graphics.getHeight()/10);
         finalButton.setPosition((float)Gdx.graphics.getWidth()/2-finalButton.getWidth()/2,(float)Gdx.graphics.getHeight()/4-finalButton.getHeight()/2);
