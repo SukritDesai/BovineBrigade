@@ -2,14 +2,14 @@ package com.git.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.git.game.GitOdyssey;
 
-// Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
+		config.setTitle("Main Menu");
+		config.setWindowedMode(800, 480);
+		config.useVsync(true);
 		config.setForegroundFPS(60);
-		config.setTitle("git-odyssey");
-		new Lwjgl3Application(new GitOdyssey(), config);
+		new Lwjgl3Application(new MainMenu(), config);
 	}
 }

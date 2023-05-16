@@ -1,58 +1,68 @@
 package com.git.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-import java.awt.*;
-
-public class MainMenu extends ApplicationAdapter {
-    private Stage stage;
-    private Label outputLabel;
-    Skin mySkin = new Skin(FileHandle.tempFile("assets/kenney-pixel/skin/skin.json"));
+public class MainMenu extends InputAdapter implements ApplicationListener {
 
 
+    public void resume () {
+    }
 
-    @Override
+    public void pause () {
+    }
+
+
+    Stage stage;
+
     public void create () {
-        stage = new Stage(new ScreenViewport());
+        stage = new Stage();
         Gdx.input.setInputProcessor(stage);
-        //Fix this code for a button as it is not working with the default stylename
-        Button button2 = new TextButton("Default Button",mySkin,"default");
-        int col_width = Gdx.graphics.getWidth()/12;
-        int row_height = Gdx.graphics.getHeight()/12;
+        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
 
 
-        button2.setSize(col_width*4,row_height);
-        button2.setPosition(col_width*7,Gdx.graphics.getHeight()-row_height*3);
-        button2.addListener(new InputListener(){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                outputLabel.setText("Press a Button");
-            }
-            @Override
+        Table table = new Table();
+        stage.addActor(table);
+        table.setSize(0, 0);
+        table.setPosition(380, 250);
+
+        table.debug();
+
+
+        TextButton button = new TextButton("Button 1", skin);
+        button.addListener(new InputListener() {
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                outputLabel.setText("Pressed Text Button");
-                return true;
+                return false;
             }
         });
-        stage.addActor(button2);
+        table.add(button);
+
+        Table table2 = new Table();
+        stage.addActor(table2);
+        table2.setFillParent(true);
+        table2.bottom();
 
     }
 
-    @Override
     public void render () {
-        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act();
+        stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
+    }
+
+    public void resize (int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
+
+    public void dispose () {
+        stage.dispose();
     }
 }
