@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
@@ -24,14 +25,17 @@ public class TitleScreen implements Screen {
         stage = new Stage(new ScreenViewport());
 
         Texture texture = new Texture(Gdx.files.internal("Git-Icon-Black.png"));
-        SpriteBatch batch = new SpriteBatch();
-
+        Image image1 = new Image(texture);
+        image1.setPosition(Gdx.graphics.getWidth()/3-image1.getWidth()/2,Gdx.graphics.getHeight()*2/3-image1.getHeight()/2);
+        stage.addActor(image1);
 
         Label title = new Label("Git Odyssey", GitOdyssey.gameSkin,"default");
         title.setAlignment(Align.center);
         title.setY(Gdx.graphics.getHeight()*2/3);
         title.setWidth(Gdx.graphics.getWidth());
         stage.addActor(title);
+
+
 
         TextButton introButton = new TextButton("Go to intro level!",GitOdyssey.gameSkin);
         introButton.setWidth(Gdx.graphics.getWidth()/2);
