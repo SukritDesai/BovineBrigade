@@ -10,9 +10,7 @@ public class GitOdyssey extends Game implements ApplicationListener {
 	public void create () {
 		splashScreen = new SplashScreen();
 		setScreen(splashScreen);
-	}
 
-	@Override
 	public void render () {
 		getScreen().render(Gdx.graphics.getDeltaTime());
 	}
@@ -34,5 +32,11 @@ public class GitOdyssey extends Game implements ApplicationListener {
 
 	public Screen getScreen() {
 		return (super.getScreen());
+		super.render();
+	}
+
+
+	public void dispose () {
+    
 	}
 }
