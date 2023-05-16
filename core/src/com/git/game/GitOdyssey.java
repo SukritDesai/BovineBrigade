@@ -1,17 +1,22 @@
 package com.git.game;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 
 public class GitOdyssey extends Game implements ApplicationListener {
 	SplashScreen splashScreen;
+	public static Skin gameSkin;
 
 	@Override
 	public void create () {
 		splashScreen = new SplashScreen();
+		gameSkin = new Skin(Gdx.files.internal("Skin/uiskin.json"));
 		setScreen(splashScreen);
 
-	public void render () {
+	}
+
+	public void render() {
 		getScreen().render(Gdx.graphics.getDeltaTime());
 	}
 
@@ -20,19 +25,8 @@ public class GitOdyssey extends Game implements ApplicationListener {
 		getScreen().resize(width, height);
 	}
 
-// Other ApplicationListener methods (pause, resume, dispose) can be left empty
-
-	public void setScreen(Screen screen) {
-		if (getScreen() != null) {
-			getScreen().dispose();
-		}
-		screen.show();
-		super.setScreen(screen);
-	}
-
 	public Screen getScreen() {
 		return (super.getScreen());
-		super.render();
 	}
 
 

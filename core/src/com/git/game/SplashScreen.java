@@ -57,7 +57,7 @@ public class SplashScreen implements Screen {
         if (progress >= 1f) {
             dispose();
             GitOdyssey game = (GitOdyssey) Gdx.app.getApplicationListener();
-            game.setScreen(new MainMenu());
+            game.setScreen(new MainMenu(game));
         }
     }
 
