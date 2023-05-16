@@ -1,6 +1,5 @@
 package com.git.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -12,16 +11,14 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class IntroScreen implements Screen {
 
-    private Stage stage;
-    private Game game;
+    private final Stage stage;
 
-    public IntroScreen(Game aGame) {
-        game = aGame;
+    public IntroScreen() {
         stage = new Stage(new ScreenViewport());
 
         Label title = new Label("Intro level", GitOdyssey.gameSkin,"default");
         title.setAlignment(Align.center);
-        title.setY(Gdx.graphics.getHeight()*2/3);
+        title.setY((float)Gdx.graphics.getHeight()*2/3);
         title.setWidth(Gdx.graphics.getWidth());
         stage.addActor(title);
     }

@@ -6,10 +6,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class GitOdyssey extends Game {
 
-	static public Skin gameSkin;
+	public static Skin gameSkin;
 
 	public void create () {
-		gameSkin = new Skin(Gdx.files.internal("uiskin.json"));
+		gameSkin = new Skin(Gdx.files.internal("Skin/uiskin.json"));
 		this.setScreen(new TitleScreen(this));
 	}
 
