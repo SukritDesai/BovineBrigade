@@ -1,16 +1,13 @@
 package com.git.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public class LearningLevel extends Game {
+public class LearningLevel extends Game implements Screen {
     public static final int ROOM_WIDTH = 1280;
     public static final int ROOM_HEIGHT = 720;
     public static final int CHARACTER_SIZE = 64;
@@ -50,6 +47,21 @@ public class LearningLevel extends Game {
     @Override
     public void render() {
         super.render();
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void render(float delta) {
+
+    }
+
+    @Override
+    public void hide() {
+
     }
 
     @Override
