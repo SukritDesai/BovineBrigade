@@ -15,10 +15,10 @@ public class Animation implements Screen {
     private final Color startColor = Color.BLACK;
     private final Color endColor = Color.WHITE;
     private final Game game;
-    private final Screen screen;
+    private final Game screen;
 
 
-    public Animation(Game aGame, Screen aScreen) {
+    public Animation(Game aGame, Game aScreen) {
         screen = aScreen;
         game = aGame;
         batch = new SpriteBatch();
@@ -47,7 +47,7 @@ public class Animation implements Screen {
 
         // Check if the animation is finished
         if (elapsed >= duration) {
-            game.setScreen(screen);
+            game.setScreen(new RoomScreen());
         }
     }
 
