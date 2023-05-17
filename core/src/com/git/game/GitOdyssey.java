@@ -3,7 +3,6 @@ package com.git.game;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-
 public class GitOdyssey extends Game implements ApplicationListener {
 	SplashScreen splashScreen;
 	public static Skin gameSkin;
