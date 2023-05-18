@@ -5,12 +5,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class Animation implements Screen {
-
-    private final SpriteBatch batch;
     private final long startTime;
     private final Color startColor = Color.BLACK;
     private final Color endColor = Color.WHITE;
@@ -23,7 +20,6 @@ public class Animation implements Screen {
         message = aMessage;
         screen = aScreen;
         game = aGame;
-        batch = new SpriteBatch();
         startTime = TimeUtils.millis();
     }
 
@@ -74,7 +70,5 @@ public class Animation implements Screen {
     public void hide() {}
 
     @Override
-    public void dispose() {
-        batch.dispose();
-    }
+    public void dispose() {}
 }

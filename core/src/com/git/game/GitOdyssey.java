@@ -29,7 +29,5 @@ public class GitOdyssey extends Game implements ApplicationListener {
 	}
 
 
-	public void dispose () {
-    
-	}
+	public void dispose () {}
 }
