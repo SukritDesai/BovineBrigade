@@ -1,5 +1,6 @@
 package com.git.game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -8,18 +9,19 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 public class RoomScreen implements Screen {
-    private SpriteBatch batch;
-    private Texture characterTexture;
-    private Texture computerTexture;
-    private OrthographicCamera camera;
-    private Rectangle character;
-    private Rectangle computer;
+    private final SpriteBatch batch;
+    private final Texture characterTexture;
+    private final Texture computerTexture;
+    private final OrthographicCamera camera;
+    private final Rectangle character;
+    private final Rectangle computer;
     private boolean isInteracting;
+    private final Game game;
 
-    public RoomScreen() {
+    public RoomScreen(Game aGame) {
+        game = aGame;
         batch = new SpriteBatch();
         characterTexture = new Texture("character.png");
         computerTexture = new Texture("computer.png");
@@ -68,7 +70,7 @@ public class RoomScreen implements Screen {
             if (character.overlaps(computer)) {
                 isInteracting = true;
                 // Open the computer screen
-                LearningLevel game = new LearningLevel();
+
                 game.setScreen(new ComputerScreen());
             }
         }

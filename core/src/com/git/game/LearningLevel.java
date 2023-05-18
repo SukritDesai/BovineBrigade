@@ -19,7 +19,6 @@ public class LearningLevel extends Game implements Screen {
     public OrthographicCamera camera;
     public Rectangle character;
     public Rectangle computer;
-    public boolean isInteracting;
 
     @Override
     public void create() {
@@ -41,7 +40,7 @@ public class LearningLevel extends Game implements Screen {
         computer.setSize(COMPUTER_SIZE, COMPUTER_SIZE);
         computer.setPosition(ROOM_WIDTH / 2.0f - COMPUTER_SIZE / 2.0f, ROOM_HEIGHT / 2.0f - COMPUTER_SIZE / 2.0f - 100);
 
-        setScreen(new RoomScreen());
+        setScreen(new RoomScreen(this));
     }
 
     @Override
