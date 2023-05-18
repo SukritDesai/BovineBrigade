@@ -13,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.awt.*;
+
 import static com.git.game.GitOdyssey.gameSkin;
 
 public class ComputerScreen implements Screen {
