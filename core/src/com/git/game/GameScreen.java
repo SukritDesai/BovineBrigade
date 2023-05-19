@@ -1,3 +1,7 @@
+/**
+ * The GameScreen class it the main action of the game.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Game;

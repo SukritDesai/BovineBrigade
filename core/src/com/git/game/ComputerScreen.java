@@ -1,3 +1,7 @@
+/**
+ * The ComputerScreen class represents a screen that displays a computer interface.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Gdx;
