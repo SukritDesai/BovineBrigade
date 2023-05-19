@@ -23,6 +23,8 @@ public class RoomScreen implements Screen {
     public RoomScreen(Game aGame) {
         game = aGame;
         batch = new SpriteBatch();
+
+
         characterTexture = new Texture("character.png");
         computerTexture = new Texture("computer.png");
 
@@ -38,7 +40,7 @@ public class RoomScreen implements Screen {
         // Set up computer
         computer = new Rectangle();
         computer.setSize(LearningLevel.COMPUTER_SIZE, LearningLevel.COMPUTER_SIZE);
-        computer.setPosition(LearningLevel.ROOM_WIDTH / 2.0f - LearningLevel.COMPUTER_SIZE / 2.0f, LearningLevel.ROOM_HEIGHT / 2.0f - LearningLevel.COMPUTER_SIZE / 2.0f - 100);
+        computer.setPosition(LearningLevel.ROOM_WIDTH / 2.0f - LearningLevel.COMPUTER_SIZE / 2.0f-600, LearningLevel.ROOM_HEIGHT / 2.0f - LearningLevel.COMPUTER_SIZE / 2.0f - 100);
     }
 
     @Override

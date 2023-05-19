@@ -3,6 +3,7 @@ package com.git.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -12,9 +13,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
-import java.awt.*;
-
 import static com.git.game.GitOdyssey.gameSkin;
 
 public class ComputerScreen implements Screen {
@@ -26,6 +24,8 @@ public class ComputerScreen implements Screen {
     private SpriteBatch spriteBatch;
     private ShapeRenderer shapeRenderer;
     private TextField consoleTextField;
+    Label output;
+
 
     @Override
     public void show() {
@@ -38,13 +38,13 @@ public class ComputerScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         // Create and position the rectangles in the left half of the screen
-        float rectangleWidth = SCREEN_WIDTH / 2f;
+        float rectangleWidth = SCREEN_WIDTH / 5f;
         float rectangleX = 1f;
         float rectangleY = 1f;
         stage.addActor(new Rectangle(rectangleX, rectangleY, rectangleWidth, rectangleWidth, com.badlogic.gdx.graphics.Color.RED));
 
         // Create and position the instructions label in the top right
-        Label instructionsLabel = new Label("Instructions:", gameSkin, "default");
+        Label instructionsLabel = new Label("Instructions:\nPlease clone the\nrepository", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight());
 
         // Create and position the console text area in the bottom right
@@ -55,10 +55,15 @@ public class ComputerScreen implements Screen {
         consoleTextField = new TextField("", gameSkin, "default");
         consoleTextField.setSize(consoleWidth, consoleHeight);
         consoleTextField.setPosition(consoleX, consoleY);
+        output = new Label("", gameSkin, "default");
+        output.setPosition(100, 100);
+        output.setSize(20, 20);
+        output.setColor(Color.BLACK);
 
         // Add elements to the stage
         stage.addActor(instructionsLabel);
         stage.addActor(consoleTextField);
+        stage.addActor(output);
     }
 
     @Override
@@ -71,8 +76,7 @@ public class ComputerScreen implements Screen {
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            String consoleInput = consoleTextField.getText();
-            consoleTextField.setText(consoleInput + "\n Idk what to do with this input yet");
+            output.setText("This is to be completed");
         }
     }
 

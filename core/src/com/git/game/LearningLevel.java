@@ -10,8 +10,8 @@ import com.badlogic.gdx.math.Rectangle;
 public class LearningLevel extends Game implements Screen {
     public static final int ROOM_WIDTH = 1280;
     public static final int ROOM_HEIGHT = 720;
-    public static final int CHARACTER_SIZE = 64;
-    public static final int COMPUTER_SIZE = 128;
+    public static final int CHARACTER_SIZE = 128;
+    public static final int COMPUTER_SIZE = 350;
 
     public SpriteBatch batch;
     public Texture characterTexture;
@@ -23,7 +23,7 @@ public class LearningLevel extends Game implements Screen {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        characterTexture = new Texture("character.png");
+        characterTexture = new Texture("Sprites/sprite_0.png");
         computerTexture = new Texture("computer.png");
 
         // Set up camera
