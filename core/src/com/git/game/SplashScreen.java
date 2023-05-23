@@ -1,3 +1,9 @@
+/**
+ * Name: Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Splash screen with logo and loading bar.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Gdx;

@@ -1,3 +1,9 @@
+/**
+ * Name: Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Class to get to learning level on computer.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Game;

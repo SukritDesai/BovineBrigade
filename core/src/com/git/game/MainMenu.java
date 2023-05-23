@@ -1,3 +1,9 @@
+/**
+ * Name: Kevin Kolyakov, Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Main menu with buttons to go to the learning level and the game level.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Game;

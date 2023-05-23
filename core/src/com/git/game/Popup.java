@@ -1,3 +1,9 @@
+/**
+ * Name: Kevin Kolyakov
+ * Teacher: Ms Krasteva
+ * Description: Class for text pop-up between screens for instructions.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Game;

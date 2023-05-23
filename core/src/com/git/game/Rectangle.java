@@ -1,3 +1,9 @@
+/**
+ * Name: Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Class that simplifies creating rectangle in screen.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.graphics.Color;
