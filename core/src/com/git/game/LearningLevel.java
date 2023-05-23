@@ -1,3 +1,9 @@
+/**
+ * Name: Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Class that implements the Screen interface for the learning level.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Game;
@@ -6,6 +12,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+
 
 public class LearningLevel extends Game implements Screen {
     public static final int ROOM_WIDTH = 1280;

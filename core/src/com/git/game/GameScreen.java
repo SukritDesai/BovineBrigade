@@ -1,5 +1,7 @@
 /**
- * The GameScreen class it the main action of the game.
+ * Name: Sukrit Desai
+ * Teacher: Ms. Krasteva
+ * Description: The GameScreen class it the main action of the game.
  */
 
 package com.git.game;
@@ -12,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-
 
 public class GameScreen extends Game implements Screen {
 

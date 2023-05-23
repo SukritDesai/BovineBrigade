@@ -21,7 +21,7 @@ public class MainMenu implements Screen {
         game = aGame;
         stage = new Stage(new ScreenViewport());
 
-        Label title = new Label("Git Odyssey", GitOdyssey.gameSkin,"default");
+        Label title = new Label("Git Odyssey", GitOdyssey.gameSkin, "default");
         title.setAlignment(Align.center);
         title.setY((float) (Gdx.graphics.getHeight()*2/3.0));
         title.setWidth(Gdx.graphics.getWidth());

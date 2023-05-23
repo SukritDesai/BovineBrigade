@@ -1,5 +1,7 @@
 /**
- * The Animation class represents a screen that transitions from one color to another.
+ * Name: Kevin Kolyakov
+ * Teacher: Ms. Krasteva
+ * Description: The Animation class represents a screen that transitions from one color to another.
  */
 package com.git.game;
 

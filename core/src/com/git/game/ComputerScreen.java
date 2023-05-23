@@ -1,4 +1,6 @@
 /**
+ * Name: Kevin Kolyakov
+ * Teacher: Ms. Krasteva
  * The ComputerScreen class represents a screen that displays a computer interface.
  */
 
