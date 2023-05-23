@@ -31,6 +31,7 @@ public class ComputerScreen implements Screen {
     private ShapeRenderer shapeRenderer;
     private TextField consoleTextField;
     Label output;
+    Rectangle first;
 
 
     @Override
@@ -47,7 +48,9 @@ public class ComputerScreen implements Screen {
         float rectangleWidth = SCREEN_WIDTH / 5f;
         float rectangleX = 1f;
         float rectangleY = 1f;
-        stage.addActor(new Rectangle(rectangleX, rectangleY, rectangleWidth, rectangleWidth, com.badlogic.gdx.graphics.Color.RED));
+        first = new Rectangle(rectangleX, rectangleY, rectangleWidth, rectangleWidth, Color.RED);
+        first.setTransparency(0f);
+        stage.addActor(first);
 
         // Create and position the instructions label in the top right
         Label instructionsLabel = new Label("Instructions:\nPlease clone the\nrepository", gameSkin, "default");
@@ -58,11 +61,12 @@ public class ComputerScreen implements Screen {
         float consoleHeight = SCREEN_HEIGHT / 2f;
         float consoleX = SCREEN_WIDTH / 2f;
         float consoleY = 0f;
+        stage.addActor(new Rectangle(consoleX, consoleY, consoleWidth, consoleHeight, Color.WHITE));
         consoleTextField = new TextField("", gameSkin, "default");
-        consoleTextField.setSize(consoleWidth, consoleHeight);
-        consoleTextField.setPosition(consoleX, consoleY);
+        consoleTextField.setSize(consoleWidth, 50);
+        consoleTextField.setPosition(consoleX+10, 180);
         output = new Label("", gameSkin, "default");
-        output.setPosition(100, 100);
+        output.setPosition(consoleX+10, 150);
         output.setSize(20, 20);
         output.setColor(Color.BLACK);
 
@@ -82,7 +86,15 @@ public class ComputerScreen implements Screen {
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            output.setText("This is to be completed");
+            if (consoleTextField.getText().equals("git clone")) {
+                output.setColor(Color.GREEN);
+                output.setText("This is to be completed");
+                first.setTransparency(1f);
+            } else {
+                output.setColor(Color.RED);
+                output.setText("Error, please try again");
+                consoleTextField.setText("");
+            }
         }
     }
 

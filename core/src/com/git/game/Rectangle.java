@@ -38,4 +38,10 @@ public class Rectangle extends Actor {
         batch.setColor(color.r, color.g, color.b, color.a * parentAlpha);
         batch.draw(texture, getX(), getY(), getWidth(), getHeight());
     }
+
+    public void setTransparency(float alpha) {
+        Color color = getColor();
+        color.a = alpha;
+        setColor(color);
+    }
 }
