@@ -16,7 +16,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public class RoomScreen implements Screen {
+public class Room implements Screen {
+    public static int ROOM_WIDTH = 1280;
+    public static int ROOM_HEIGHT = 720;
+    public static int CHARACTER_SIZE = 128;
+    public static int COMPUTER_SIZE = 350;
+
+    private final Game game;
     private final SpriteBatch batch;
     private final Texture characterTexture;
     private final Texture computerTexture;
@@ -24,29 +30,27 @@ public class RoomScreen implements Screen {
     private final Rectangle character;
     private final Rectangle computer;
     private boolean isInteracting;
-    private final Game game;
 
-    public RoomScreen(Game aGame) {
+    public Room(Game aGame) {
         game = aGame;
         batch = new SpriteBatch();
-
 
         characterTexture = new Texture("character.png");
         computerTexture = new Texture("computer.png");
 
         // Set up camera
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, LearningLevel.ROOM_WIDTH, LearningLevel.ROOM_HEIGHT);
+        camera.setToOrtho(false, ROOM_WIDTH, ROOM_HEIGHT);
 
         // Set up character
         character = new Rectangle();
-        character.setSize(LearningLevel.CHARACTER_SIZE, LearningLevel.CHARACTER_SIZE);
-        character.setPosition(LearningLevel.ROOM_WIDTH / 2.0f - LearningLevel.CHARACTER_SIZE / 2.0f, LearningLevel.ROOM_HEIGHT / 2.0f - LearningLevel.CHARACTER_SIZE / 2.0f);
+        character.setSize(CHARACTER_SIZE, CHARACTER_SIZE);
+        character.setPosition(ROOM_WIDTH / 2.0f - CHARACTER_SIZE / 2.0f, ROOM_HEIGHT / 2.0f - CHARACTER_SIZE / 2.0f);
 
         // Set up computer
         computer = new Rectangle();
-        computer.setSize(LearningLevel.COMPUTER_SIZE, LearningLevel.COMPUTER_SIZE);
-        computer.setPosition(LearningLevel.ROOM_WIDTH / 2.0f - LearningLevel.COMPUTER_SIZE / 2.0f-600, LearningLevel.ROOM_HEIGHT / 2.0f - LearningLevel.COMPUTER_SIZE / 2.0f - 100);
+        computer.setSize(COMPUTER_SIZE, COMPUTER_SIZE);
+        computer.setPosition(ROOM_WIDTH / 2.0f - COMPUTER_SIZE / 2.0f-600, ROOM_HEIGHT / 2.0f - COMPUTER_SIZE / 2.0f - 100);
     }
 
     @Override
@@ -74,11 +78,11 @@ public class RoomScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             character.y -= 200 * Gdx.graphics.getDeltaTime();
         }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             if (character.overlaps(computer)) {
                 isInteracting = true;
                 // Open the computer screen
-                game.setScreen(new ComputerScreen(game));
+                game.setScreen(new Maze());
             }
         }
     }
@@ -90,14 +94,14 @@ public class RoomScreen implements Screen {
             if (character.x < 0) {
                 character.x = 0;
             }
-            if (character.x > LearningLevel.ROOM_WIDTH - LearningLevel.CHARACTER_SIZE) {
-                character.x = LearningLevel.ROOM_WIDTH - LearningLevel.CHARACTER_SIZE;
+            if (character.x > ROOM_WIDTH - CHARACTER_SIZE) {
+                character.x = ROOM_WIDTH - CHARACTER_SIZE;
             }
             if (character.y < 0) {
                 character.y = 0;
             }
-            if (character.y > LearningLevel.ROOM_HEIGHT - LearningLevel.CHARACTER_SIZE) {
-                character.y = LearningLevel.ROOM_HEIGHT - LearningLevel.CHARACTER_SIZE;
+            if (character.y > ROOM_HEIGHT - CHARACTER_SIZE) {
+                character.y = ROOM_HEIGHT - CHARACTER_SIZE;
             }
         }
     }

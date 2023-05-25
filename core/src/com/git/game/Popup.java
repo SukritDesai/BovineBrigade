@@ -48,7 +48,7 @@ public class Popup implements Screen {
         table.addAction(Actions.sequence(Actions.delay(1.0f), Actions.show(), Actions.fadeIn(0.5f)));
 
         // Hide the popup after a couple of seconds
-        table.addAction(Actions.sequence(Actions.delay(3.0f), Actions.fadeOut(0.5f), Actions.hide()));
+        table.addAction(Actions.sequence(Actions.delay(7.5f), Actions.fadeOut(0.5f), Actions.hide()));
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Popup implements Screen {
         stage.draw();
 
         // Check if the popup has finished displaying
-        if (TimeUtils.timeSinceMillis(startTime) >= 4000) {
+        if (TimeUtils.timeSinceMillis(startTime) >= 7500) {
             // Transition to the game screen
             game.setScreen(screen);
         }
