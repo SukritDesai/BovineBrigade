@@ -1,3 +1,9 @@
+/**
+ * Name: Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Splash screen with logo and loading bar.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Gdx;
@@ -10,7 +16,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-
 
 public class SplashScreen implements Screen {
 

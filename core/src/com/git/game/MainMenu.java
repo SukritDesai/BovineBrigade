@@ -1,3 +1,9 @@
+/**
+ * Name: Kevin Kolyakov, Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Main menu with buttons to go to the learning level and the game level.
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Game;
@@ -21,7 +27,7 @@ public class MainMenu implements Screen {
         game = aGame;
         stage = new Stage(new ScreenViewport());
 
-        Label title = new Label("Git Odyssey", GitOdyssey.gameSkin,"default");
+        Label title = new Label("Git Odyssey", GitOdyssey.gameSkin, "default");
         title.setAlignment(Align.center);
         title.setY((float) (Gdx.graphics.getHeight()*2/3.0));
         title.setWidth(Gdx.graphics.getWidth());
@@ -35,7 +41,7 @@ public class MainMenu implements Screen {
         introButton.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new Animation(game, new RoomScreen(), "Walk to the computer and press space to learn about Git"));
+                game.setScreen(new Animation(game, new LearningLevel(game), "Follow the instructions and complete the tasks to learn about Git"));
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
@@ -51,7 +57,7 @@ public class MainMenu implements Screen {
         finalButton.addListener(new InputListener(){
                 @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new Animation(game, new GameScreen(), "Complete the maze to test your knowledge on Git"));
+                game.setScreen(new Animation(game, new Room(game), "Complete the maze and final level to test your knowledge on Git"));
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {

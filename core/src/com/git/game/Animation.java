@@ -1,3 +1,8 @@
+/**
+ * Name: Kevin Kolyakov
+ * Teacher: Ms. Krasteva
+ * Description: The Animation class represents a screen that transitions from one color to another.
+ */
 package com.git.game;
 
 import com.badlogic.gdx.Game;
@@ -16,6 +21,13 @@ public class Animation implements Screen {
     private final String message;
 
 
+    /**
+     * Constructs an Animation object.
+     *
+     * @param aGame    The Game object that manages screens.
+     * @param aScreen  The previous screen to return to after the animation.
+     * @param aMessage The message to display in the popup screen after the animation.
+     */
     public Animation(Game aGame, Screen aScreen, String aMessage) {
         message = aMessage;
         screen = aScreen;
@@ -26,6 +38,11 @@ public class Animation implements Screen {
     @Override
     public void show() {}
 
+    /**
+     * Renders the animation screen.
+     *
+     * @param delta The time elapsed since the last frame.
+     */
     @Override
     public void render(float delta) {
         // Clear the screen
@@ -49,6 +66,14 @@ public class Animation implements Screen {
         }
     }
 
+    /**
+     * Interpolates between two colors based on a progress value.
+     *
+     * @param startColor The starting color.
+     * @param endColor   The ending color.
+     * @param progress   The progress value between 0 and 1.
+     * @return The interpolated color.
+     */
     private Color interpolateColor(Color startColor, Color endColor, float progress) {
         float r = startColor.r + (endColor.r - startColor.r) * progress;
         float g = startColor.g + (endColor.g - startColor.g) * progress;

@@ -1,3 +1,9 @@
+/**
+ * Name: Sukrit Desai
+ * Teacher: Ms Krasteva
+ * Description: Main game class
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.*;
@@ -11,8 +17,7 @@ public class GitOdyssey extends Game implements ApplicationListener {
 	public void create () {
 		splashScreen = new SplashScreen();
 		gameSkin = new Skin(Gdx.files.internal("Skin/uiskin.json"));
-		setScreen(splashScreen);
-
+		setScreen(new MainMenu(this));
 	}
 
 	public void render() {
