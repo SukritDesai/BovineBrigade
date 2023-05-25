@@ -78,7 +78,7 @@ public class RoomScreen implements Screen {
             if (character.overlaps(computer)) {
                 isInteracting = true;
                 // Open the computer screen
-                game.setScreen(new ComputerScreen());
+                game.setScreen(new ComputerScreen(game));
             }
         }
     }

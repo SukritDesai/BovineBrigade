@@ -6,6 +6,7 @@
 
 package com.git.game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -30,9 +31,13 @@ public class ComputerScreen implements Screen {
     private SpriteBatch spriteBatch;
     private ShapeRenderer shapeRenderer;
     private TextField consoleTextField;
-    Label output, firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel;
+    Label output, firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel, instructionsLabel;
     Rectangle first, second, third, fourth, fifth, connector1, connector2, connector3, connector4, connector5, outline;
-
+    private int counter = 0;
+    Game game;
+    public ComputerScreen(Game aGame){
+        game = aGame;
+    }
 
     @Override
     public void show() {
@@ -101,7 +106,7 @@ public class ComputerScreen implements Screen {
         stage.addActor(fifthLabel);
 
         // Create and position the instructions label in the top right
-        Label instructionsLabel = new Label("Instructions:\nPlease clone the\nrepository", gameSkin, "default");
+        instructionsLabel = new Label("Instructions:\nPlease clone the\nrepository", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight());
 
         // Create and position the console text area in the bottom right
@@ -134,24 +139,58 @@ public class ComputerScreen implements Screen {
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            if (consoleTextField.getText().trim().equals("git clone")) {
+            if (counter == 0 && consoleTextField.getText().trim().equals("git clone")) {
+                instructionsLabel.setText("Instructions:\nnew thing");
                 output.setColor(Color.GREEN);
                 output.setText("This is to be completed");
                 first.setTransparency(1f);
+                firstLabel.setText("9e78i");
+                counter++;
+
+            } else if (counter == 1 && consoleTextField.getText().trim().equals("git clone")) {
+                instructionsLabel.setText("Instructions:\nnew instructions");
+                output.setColor(Color.GREEN);
+                output.setText("This is to be completed");
                 second.setTransparency(1f);
-                third.setTransparency(1f);
-                fourth.setTransparency(1f);
-                fifth.setTransparency(1f);
                 connector1.setTransparency(1f);
-                connector2.setTransparency(1f);
+                secondLabel.setText("035cc");
+                counter++;
+
+            }else if (counter == 2 && consoleTextField.getText().trim().equals("git clone")) {
+                instructionsLabel.setText("Instructions:\nplaceholder");
+                output.setColor(Color.GREEN);
+                output.setText("This is to be completed");
+                third.setTransparency(1f);
+                fourthLabel.setText("76d12");
+                fifth.setTransparency(1f);
                 connector3.setTransparency(1f);
                 connector4.setTransparency(1f);
-                connector5.setTransparency(1f);
-                firstLabel.setText("9e78i");
-                secondLabel.setText("035cc");
                 thirdLabel.setText("e3475");
-                fourthLabel.setText("76d12");
+                counter++;
+
+            }else if (counter == 3 && consoleTextField.getText().trim().equals("git clone")) {
+                instructionsLabel.setText("Instructions:\nidk man");
+                output.setColor(Color.GREEN);
+                output.setText("This is to be completed");
+                fourth.setTransparency(1f);
+                connector2.setTransparency(1f);
+                connector5.setTransparency(1f);
                 fifthLabel.setText("i8fe5");
+                counter++;
+
+            }else if (counter == 4 && consoleTextField.getText().trim().equals("git clone")) {
+                instructionsLabel.setText("Instructions:\nbruh");
+                output.setColor(Color.GREEN);
+                output.setText("This is to be completed");
+                fourth.setTransparency(0f);
+                connector2.setTransparency(0f);
+                connector5.setTransparency(0f);
+                fifthLabel.setText("");
+                counter++;
+
+            } else if (counter == 5 && consoleTextField.getText().trim().equals("git clone")) {
+                game.setScreen(new Popup(game, new ComputerScreen(game), "bruh, gl in maze lmao"));
+
             } else {
                 output.setColor(Color.RED);
                 output.setText("Error, please try again");
@@ -159,6 +198,7 @@ public class ComputerScreen implements Screen {
             }
         }
     }
+
 
     @Override
     public void resize(int width, int height) {

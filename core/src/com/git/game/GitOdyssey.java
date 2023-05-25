@@ -17,7 +17,7 @@ public class GitOdyssey extends Game implements ApplicationListener {
 	public void create () {
 		splashScreen = new SplashScreen();
 		gameSkin = new Skin(Gdx.files.internal("Skin/uiskin.json"));
-		setScreen(splashScreen);
+		setScreen(new ComputerScreen(this));
 	}
 
 	public void render() {
