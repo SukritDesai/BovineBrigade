@@ -109,7 +109,7 @@ public class Snake1 implements Screen {
         stage.addActor(fifthLabel);
 
         // Create and position the instructions label in the top right
-        instructionsLabel = new Label("Instructions:\n add the README.md file with the message “first commit” to the current online repository", gameSkin, "default");
+        instructionsLabel = new Label("Instructions:\n add the README.md file with\nthe message “first commit” to the current online repository", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight()+20);
         instructionsLabel.setFontScale(0.6f);
 
@@ -137,7 +137,8 @@ public class Snake1 implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+        first.setTransparency(1f);
+        firstLabel.setText("9e78i");
         stage.act(delta);
         stage.draw();
 
@@ -146,8 +147,6 @@ public class Snake1 implements Screen {
             if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {
                 output.setColor(Color.GREEN);
                 output.setText("This is to be completed");
-                first.setTransparency(1f);
-                firstLabel.setText("9e78i");
                 counter++;
 
             } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"first commit\"")) {
@@ -158,13 +157,13 @@ public class Snake1 implements Screen {
             }else if (counter == 2 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git push")) {
                 output.setColor(Color.GREEN);
                 output.setText("This is to be completed");
+                second.setTransparency(1f);
+                connector1.setTransparency(1f);
+                secondLabel.setText("035cc");
                 counter++;
 
-            }else if (counter == 3 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"message\"")) {
-                instructionsLabel.setText("Instructions:\nidk man");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
+            }else if (counter == 3) {
+                game.setScreen(new Snake2(game));
 
             } else {
                 output.setColor(Color.RED);
