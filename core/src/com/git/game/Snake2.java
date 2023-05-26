@@ -63,7 +63,7 @@ public class Snake2 implements Screen {
         fourthLabel = new Label("", gameSkin, "default");
         fifthLabel = new Label("", gameSkin, "default");
         title.setPosition(10, 445);
-        firstLabel.setPosition(30, 380);
+        firstLabel.setPosition(25, 380);
         secondLabel.setPosition(30, 255);
         thirdLabel.setPosition(180, 255);
         fourthLabel.setPosition(180, 130);
@@ -90,6 +90,8 @@ public class Snake2 implements Screen {
         fourth.setTransparency(0f);
         fifth.setTransparency(0f);
 
+
+
         stage.addActor(outline);
         stage.addActor(connector1);
         stage.addActor(connector2);
@@ -109,7 +111,7 @@ public class Snake2 implements Screen {
         stage.addActor(fifthLabel);
 
         // Create and position the instructions label in the top right
-        instructionsLabel = new Label("Instructions:\nWelcome to the Git Odyssey. The window \nbelow this one is your command line. Enter \nthe git commands that I explain in that \nbox. The window to your left contains \nthe visualization for that command\nUse git init in the command line to\ninitialize the repository in Git", gameSkin, "default");
+        instructionsLabel = new Label("\n\nInstructions:\nCreate a new branch called dev,\ncheckout to that branch,\nadd, commit and push README.md\nwith the message \"readme\" to that branch,\nand then merge the branch to master", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight()+20);
         instructionsLabel.setFontScale(0.6f);
 
@@ -120,8 +122,8 @@ public class Snake2 implements Screen {
         ScrollPane scrollPane  = new ScrollPane(consoleTextField);
         scrollPane.setPosition(consoleX+20, 100);
         scrollPane.setScrollingDisabled(true, false);
-        consoleTextField.setSize(consoleWidth+80, 350);
-        consoleTextField.setPosition(consoleX+10, 0);
+        consoleTextField.setSize(consoleWidth+80, 310);
+        consoleTextField.setPosition(consoleX+10, 20);
         output = new Label("", gameSkin, "default");
         output.setPosition(consoleX+20, 50);
         output.setSize(20, 20);
@@ -137,83 +139,54 @@ public class Snake2 implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+        first.setTransparency(1f);
+        second.setTransparency(1f);
+        connector1.setTransparency(1f);
+        secondLabel.setText("035cc");
+        firstLabel.setText("master");
         stage.act(delta);
         stage.draw();
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git init")) {
-                instructionsLabel.setText("Instructions:\nnew thing");
+            if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git branch dev")) {
                 output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                first.setTransparency(1f);
-                firstLabel.setText("9e78i");
-                counter++;
-
-            } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git clone")) {
-                instructionsLabel.setText("Instructions:\nnew instructions");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
-
-            }else if (counter == 2 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add")) {
-                instructionsLabel.setText("Instructions:\nplaceholder");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
-
-            }else if (counter == 3 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"message\"")) {
-                instructionsLabel.setText("Instructions:\nidk man");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
-
-            }else if (counter == 4 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git push")) {
-                instructionsLabel.setText("Instructions:\nbruh");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                second.setTransparency(1f);
-                connector1.setTransparency(1f);
-                secondLabel.setText("035cc");
-                counter++;
-
-            } else if (counter == 5 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git branch \"dev\"")) {
+                output.setText("Correct!");
                 third.setTransparency(1f);
-                thirdLabel.setText("e3475");
+                thirdLabel.setText("dev");
                 connector3.setTransparency(1f);
                 counter++;
-            }else if (counter == 6 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git pull")) {
-                instructionsLabel.setText("Instructions:\nnew thing");
+
+            } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git checkout dev")) {
                 output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
+                output.setText("Well Done!");
                 counter++;
 
-            }else if (counter == 7 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {
-                instructionsLabel.setText("Instructions:\nnew thing");
+            }else if (counter == 2 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {
                 output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
+                output.setText("Correct!");
                 counter++;
 
-            }else if (counter == 8 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"README.md\"")) {
+            }else if (counter == 3 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"readme\"")) {
+                output.setColor(Color.GREEN);
+                output.setText("Well Done!");
+                counter++;
+            }else if (counter == 4 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git push")) {
+                output.setColor(Color.GREEN);
+                output.setText("Correct!");
                 fourthLabel.setText("76d12");
                 fifth.setTransparency(1f);
                 connector4.setTransparency(1f);
                 counter++;
-
-            }else if (counter == 9 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git merge dev master")) {
+            }else if (counter == 5 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git merge dev master")) {
                 fourth.setTransparency(1f);
                 connector2.setTransparency(1f);
                 connector5.setTransparency(1f);
                 fifthLabel.setText("i8fe5");
+                instructionsLabel.setText("\n\nYou have completed the first challenge!\nPress enter to continue");
                 counter++;
-
-            }else if (counter == 10 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git revert 76d12")) {
-                fourth.setTransparency(0f);
-                connector2.setTransparency(0f);
-                connector5.setTransparency(0f);
-                fifthLabel.setText("");
-                counter++;
+            }else if (counter == 6) {
+                game.setScreen(new Snake3(game));
             } else {
                 output.setColor(Color.RED);
                 output.setText("Error, please enter the\ncorrect command");

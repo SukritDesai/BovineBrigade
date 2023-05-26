@@ -109,7 +109,7 @@ public class Snake1 implements Screen {
         stage.addActor(fifthLabel);
 
         // Create and position the instructions label in the top right
-        instructionsLabel = new Label("Instructions:\n add the README.md file with\nthe message “first commit” to the current online repository", gameSkin, "default");
+        instructionsLabel = new Label("\n\nInstructions:\nadd, commit and push the README.md \nfile with the message \"first\" to the\ncurrent online repository", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight()+20);
         instructionsLabel.setFontScale(0.6f);
 
@@ -120,8 +120,8 @@ public class Snake1 implements Screen {
         ScrollPane scrollPane  = new ScrollPane(consoleTextField);
         scrollPane.setPosition(consoleX+20, 100);
         scrollPane.setScrollingDisabled(true, false);
-        consoleTextField.setSize(consoleWidth+80, 350);
-        consoleTextField.setPosition(consoleX+10, 0);
+        consoleTextField.setSize(consoleWidth+80, 310);
+        consoleTextField.setPosition(consoleX+10, 20);
         output = new Label("", gameSkin, "default");
         output.setPosition(consoleX+20, 50);
         output.setSize(20, 20);
@@ -149,7 +149,7 @@ public class Snake1 implements Screen {
                 output.setText("This is to be completed");
                 counter++;
 
-            } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"first commit\"")) {
+            } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"first\"")) {
                 output.setColor(Color.GREEN);
                 output.setText("This is to be completed");
                 counter++;
@@ -160,6 +160,7 @@ public class Snake1 implements Screen {
                 second.setTransparency(1f);
                 connector1.setTransparency(1f);
                 secondLabel.setText("035cc");
+                instructionsLabel.setText("\n\nYou have completed the first challenge!\nPress enter to continue");
                 counter++;
 
             }else if (counter == 3) {

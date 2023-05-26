@@ -198,19 +198,22 @@ public class LearningLevel implements Screen {
                 counter++;
 
             }else if (counter == 8 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"README.md\"")) {
+                counter++;
+
+            }else if (counter == 10 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git push")) {
                 fourthLabel.setText("76d12");
                 fifth.setTransparency(1f);
                 connector4.setTransparency(1f);
                 counter++;
 
-            }else if (counter == 9 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git merge dev master")) {
+            }else if (counter == 10 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git merge dev master")) {
                 fourth.setTransparency(1f);
                 connector2.setTransparency(1f);
                 connector5.setTransparency(1f);
                 fifthLabel.setText("i8fe5");
                 counter++;
 
-            }else if (counter == 10 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git revert 76d12")) {
+            }else if (counter == 11 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git revert 76d12")) {
                 fourth.setTransparency(0f);
                 connector2.setTransparency(0f);
                 connector5.setTransparency(0f);
