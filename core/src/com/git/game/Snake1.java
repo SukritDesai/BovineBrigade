@@ -1,7 +1,7 @@
 /**
  * Name: Kevin Kolyakov
- * Teacher: Ms. Krasteva
- * The ComputerScreen class represents a screen that displays a computer interface.
+ * Teacher: Ms Krasteva
+ * Description: First snake challenge for testing user on Git knowledge.
  */
 
 package com.git.game;

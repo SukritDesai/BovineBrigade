@@ -1,3 +1,10 @@
+/**
+ * Name: Kevin Kolyakov
+ * Teacher: Ms Krasteva
+ * Description: Maze level where user interacts to get through maze.
+ */
+
+
 package com.git.game;
 
 import com.badlogic.gdx.Screen;
