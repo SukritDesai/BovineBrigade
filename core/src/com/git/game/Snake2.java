@@ -186,7 +186,7 @@ public class Snake2 implements Screen {
                 instructionsLabel.setText("\n\nYou have completed the first challenge!\nPress enter to continue");
                 counter++;
             }else if (counter == 6) {
-                game.setScreen(new Snake3(game));
+                game.setScreen(new Maze(game, 1));;
             } else {
                 output.setColor(Color.RED);
                 output.setText("Error, please enter the\ncorrect command");

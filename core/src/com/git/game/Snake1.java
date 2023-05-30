@@ -144,19 +144,23 @@ public class Snake1 implements Screen {
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {
+            if (consoleTextField.getText().split("\n").length<1){
+                output.setColor(Color.RED);
+                output.setText("Error, please enter the\ncorrect command");
+            }
+            else if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {
                 output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
+                output.setText("Correct!");
                 counter++;
 
             } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"first\"")) {
                 output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
+                output.setText("Well done!");
                 counter++;
 
             }else if (counter == 2 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git push")) {
                 output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
+                output.setText("Correct!");
                 second.setTransparency(1f);
                 connector1.setTransparency(1f);
                 secondLabel.setText("035cc");
@@ -164,7 +168,7 @@ public class Snake1 implements Screen {
                 counter++;
 
             }else if (counter == 3) {
-                game.setScreen(new Snake2(game));
+                game.setScreen(new Maze(game, 2));
 
             } else {
                 output.setColor(Color.RED);

@@ -152,7 +152,7 @@ public class Snake3 implements Screen {
                 counter++;
 
             } else if (counter == 1) {
-                game.setScreen(new Snake2(game));
+                game.setScreen(new Maze(game, 0));
             } else {
                 output.setColor(Color.RED);
                 output.setText("Error, please enter the\ncorrect command");
