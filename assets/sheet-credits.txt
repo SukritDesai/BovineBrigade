@@ -1,0 +1,65 @@
+Authors: bluecarrot16, Evert, TheraHedwig, Benjamin K. Smith (BenCreating), MuffinElZangano, Durrani, Pierre Vigier (pvigier), Eliza Wyatt (ElizaWy), Matthew Krohn (makrohn), Johannes Sj?lund (wulax), Stephen Challener (Redshrike), Thane Brimhall (pennomi), Manuel Riecke (MrBeast), Joe White, Michael Whitlock (bigbeargames), Johannes Sjölund (wulax), Nila122, ElizaWy, Daniel Eddeland (daneeklu), gr3yh47, pvigier
+
+- body/bodies/teen/universal/amber.png: by bluecarrot16, Evert, TheraHedwig, Benjamin K. Smith (BenCreating), MuffinElZangano, Durrani, Pierre Vigier (pvigier), Eliza Wyatt (ElizaWy), Matthew Krohn (makrohn), Johannes Sj?lund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-ladies
+    - https://opengameart.org/content/lpc-teen-unisex-base-clothes
+    - https://opengameart.org/content/lpc-jump-expanded
+
+- head/heads/human_male/universal/amber.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-character-bases
+
+- head/nose/straight/amber.png: by Thane Brimhall (pennomi), Matthew Krohn (makrohn). License(s): GPL 3.0, CC-BY-SA 3.0. 
+    - https://opengameart.org/content/lpc-base-character-expressions
+
+- eyes/male/green.png: by Matthew Krohn (makrohn), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+
+- hair/plain/male/chestnut.png: by Manuel Riecke (MrBeast), Joe White. License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/ponytail-and-plain-hairstyles
+
+- arms/armour/plate/female/steel.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-combat-armor-for-women
+    - http://opengameart.org/content/lpc-clothing-updates
+
+- bauldron/female/charcoal.png: by Nila122. License(s): GPL 2.0, GPL 3.0, CC-BY-SA 3.0. 
+    - https://opengameart.org/content/more-lpc-clothes-and-hair
+
+- torso/clothes/longsleeve/teen/charcoal.png: by bluecarrot16, ElizaWy, Stephen Challener (Redshrike). License(s): OGA-BY 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-teen-unisex-base-clothes
+    - http://opengameart.org/content/lpc-clothing-updates
+
+- torso/waist/belt_leather/male/slate.png: by bluecarrot16, Johannes Sjölund (wulax), Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-combat-armor-for-women
+    - https://opengameart.org/content/lpc-pirates
+
+- legs/pants/teen/charcoal.png: by bluecarrot16, ElizaWy, Stephen Challener (Redshrike). License(s): OGA-BY 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-teen-unisex-base-clothes
+    - http://opengameart.org/content/lpc-clothing-updates
+
+- feet/boots/female/black.png: by bluecarrot16, Nila122. License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-clothes-and-hair
+
+- quiver/quiver.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- weapon/ranged/bow/arrow/arrow.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- weapon/ranged/bow/recurve/recurve.png: by Daniel Eddeland (daneeklu), gr3yh47, Johannes Sjölund (wulax), pvigier. License(s): CC-BY-SA 3.0. 
+    - https://opengameart.org/content/lpc-weapons-two-bows-a-spear-and-a-trident
+    - https://opengameart.org/content/lpc-walk-animations-for-bows
+
+- weapon/ranged/bow/recurve/walk/background/recurve.png: by Daniel Eddeland (daneeklu), gr3yh47, Johannes Sjölund (wulax), pvigier. License(s): CC-BY-SA 3.0. 
+    - https://opengameart.org/content/lpc-weapons-two-bows-a-spear-and-a-trident
+    - https://opengameart.org/content/lpc-walk-animations-for-bows
+
+- weapon/ranged/bow/recurve/walk/foreground/recurve.png: by Daniel Eddeland (daneeklu), gr3yh47, Johannes Sjölund (wulax), pvigier. License(s): CC-BY-SA 3.0. 
+    - https://opengameart.org/content/lpc-weapons-two-bows-a-spear-and-a-trident
+    - https://opengameart.org/content/lpc-walk-animations-for-bows
