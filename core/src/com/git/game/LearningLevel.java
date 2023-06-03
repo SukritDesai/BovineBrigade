@@ -236,7 +236,7 @@ public class LearningLevel implements Screen {
                 } else if (counter == 12) {
                     output.setText("");
                     gameSkin.getFont("commodore-64").getData().setScale(1f);
-                    game.setScreen(new Maze(game, 3));
+                    game.setScreen(new Animation(game, new Maze(game, 3), "Welcome to the Git maze,\nFinish the maze to continue your\nmastery of Git"));
                 } else {
                     output.setColor(Color.RED);
                     output.setText("Error, please enter the\ncorrect command");
