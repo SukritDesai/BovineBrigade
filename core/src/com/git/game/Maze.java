@@ -211,7 +211,7 @@ public class Maze implements Screen {
                         game.setScreen(new Popup(game, new Snake3(game), "You have encountered a snake!\nComplete the snake's challenge to continue."));
                     }
                 } else if (maze[row][col] == 3 && characterRect.overlaps(wallRect)) {
-                    game.setScreen(new Popup(game, new MainMenu(game), "You have Completed the maze!\n Continue to your final challenge."));
+                    game.setScreen(new Popup(game, new MainMenu(game), "You have Completed the maze!\nContinue to your final challenge."));
                 }
             }
         }

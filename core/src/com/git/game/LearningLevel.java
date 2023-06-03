@@ -38,7 +38,7 @@ public class LearningLevel implements Screen {
     private TextField consoleTextField;
     Label output, firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel, instructionsLabel;
     Rectangle first, second, third, fourth, fifth, connector1, connector2, connector3, connector4, connector5, outline;
-    private int counter = 0;
+    private int counter = 1;
     Game game;
     public LearningLevel(Game aGame){
         game = aGame;
@@ -113,25 +113,28 @@ public class LearningLevel implements Screen {
         stage.addActor(fifthLabel);
 
         // Create and position the instructions label in the top right
-        instructionsLabel = new Label("Instructions:\nWelcome to the Git Odyssey. The window \nbelow this one is your command line. Enter \nthe git commands that I explain in that \nbox. The window to your left contains \nthe visualization for that command\nUse git init in the command line to\ninitialize the repository in Git", gameSkin, "default");
+        instructionsLabel = new Label("Instructions:\nWelcome to the Git Odyssey. The window \nbelow this one is your command line. Enter \nthe git commands that I explain in that \nbox. The window to your left contains \nthe visualization for that command\nUse git init in the command line to\ninitialize the repository in Git\nPress enter in the console to continue", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight()+20);
-        instructionsLabel.setFontScale(0.6f);
+        instructionsLabel.setFontScale(0.5f);
 
         // Create and position the console text area in the bottom right
         float consoleWidth = SCREEN_WIDTH / 2f;
         float consoleX = SCREEN_WIDTH / 2f;
         consoleTextField = new TextArea("", gameSkin, "default");
+        gameSkin.getFont("commodore-64").getData().setScale(0.5f);
         ScrollPane scrollPane  = new ScrollPane(consoleTextField);
         scrollPane.setPosition(consoleX+20, 100);
         scrollPane.setScrollingDisabled(true, false);
         consoleTextField.setSize(consoleWidth+80, 350);
         consoleTextField.setPosition(consoleX+10, 0);
+        Rectangle extra = new Rectangle(consoleX+10, 7, consoleWidth+80, 350, Color.WHITE);
         output = new Label("", gameSkin, "default");
         output.setPosition(consoleX+20, 50);
         output.setSize(20, 20);
         output.setColor(Color.BLACK);
 
         // Add elements to the stage
+        stage.addActor(extra);
         stage.addActor(instructionsLabel);
         stage.addActor(consoleTextField);
         stage.addActor(output);
@@ -146,74 +149,98 @@ public class LearningLevel implements Screen {
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            instructionsLabel.setText("The first command relating to git that one\nmust learn is git clone which is used to\nclone a repository into your local machine.\nThe command is used as follows:\ngit clone <url>.The url is the url of the\nrepository that you want to clone.\nIn this case, the url is https://odyssey.\ngit. \nThe command is used as follows:\ngit clone https://odyssey.git");
-            counter++;
-        }
-
-        if (consoleTextField.getText().split("\n").length > 0) {
-            String[] consoleText = consoleTextField.getText().split("\n");
-            String trimmed = consoleText[consoleText.length - 1].trim();
-            if (counter == 1 && trimmed.equals("git clone https://odyssey.git")) {
-                instructionsLabel.setText("Instructions:\nType in \"git clone https://odyssey.git\" in the command line. This will clone the repository into your local machine.");
-                output.setColor(Color.GREEN);
-                output.setText("Cloning into 'odyssey'...\nremote: Enumerating objects: 3, done.\nremote: Counting objects: 100% (3/3), done.\nremote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0\nUnpacking objects: 100% (3/3), done.");
-                counter++;
-            } else if (counter == 2 && trimmed.equals("git add")) {
-                instructionsLabel.setText("Instructions:\nplaceholder");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
-            } else if (counter == 3 && trimmed.equals("git commit -m \"message\"")) {
-                instructionsLabel.setText("Instructions:\nidk man");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
-            } else if (counter == 4 && trimmed.equals("git push")) {
-                instructionsLabel.setText("Instructions:\nbruh");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                second.setTransparency(1f);
-                connector1.setTransparency(1f);
-                secondLabel.setText("035cc");
-                counter++;
-            } else if (counter == 5 && trimmed.equals("git branch \"dev\"")) {
-                third.setTransparency(1f);
-                thirdLabel.setText("e3475");
-                connector3.setTransparency(1f);
-                counter++;
-            } else if (counter == 6 && trimmed.equals("git pull")) {
-                instructionsLabel.setText("Instructions:\nnew thing");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
-            } else if (counter == 7 && trimmed.equals("git add README.md")) {
-                instructionsLabel.setText("Instructions:\nnew thing");
-                output.setColor(Color.GREEN);
-                output.setText("This is to be completed");
-                counter++;
-            } else if (counter == 8 && trimmed.equals("git commit -m \"README.md\"")) {
-                fourthLabel.setText("76d12");
-                fifth.setTransparency(1f);
-                connector4.setTransparency(1f);
-                counter++;
-            } else if (counter == 9 && trimmed.equals("git merge dev master")) {
-
-                fourth.setTransparency(1f);
-                connector2.setTransparency(1f);
-                connector5.setTransparency(1f);
-                fifthLabel.setText("i8fe5");
-                counter++;
-            } else if (counter == 10 && trimmed.equals("git reset 76d12")) {
-                fourth.setTransparency(0f);
-                connector2.setTransparency(0f);
-                connector5.setTransparency(0f);
-                fifthLabel.setText("");
-                counter++;
-            } else if (trimmed.equals("\n") || trimmed.equals("")) {
-                output.setText("");
-            } else {
+            if (counter==1) {
+                instructionsLabel.setText("The first command relating to git that one\nmust learn is git clone which is used to\nclone a repository into your local machine.\nThe command is used as follows:\ngit clone <url>.The url is the url of the\nrepository that you want to clone.\nIn this case, the url is https://odyssey.\ngit. \nThe command is used as follows:\ngit clone https://odyssey.git");
+            }
+            if (consoleTextField.getText().split("\n").length<1){
                 output.setColor(Color.RED);
-                output.setText("Error, please enter the\ncorrect command");
+                output.setText("");
+
+            } else if (consoleTextField.getText().split("\n").length > 0) {
+                String[] consoleText = consoleTextField.getText().split("\n");
+                String trimmed = consoleText[consoleText.length - 1].trim();
+                if (counter == 1 && trimmed.equals("git clone https://odyssey.git")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\nThis will add the file to commit.");
+                    first.setTransparency(1f);
+                    firstLabel.setText("9e78i");
+                    output.setColor(Color.GREEN);
+                    output.setText("Cloning into 'odyssey'...\nremote: Enumerating objects: 3, done.\nremote: Counting objects: 100% (3/3), done.\nremote: Total 3 (delta 0), reused 0 (delta 0)\nUnpacking objects: 100% (3/3), done.");
+                    counter++;
+                } else if (counter == 2 && trimmed.equals("git add README.md")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"message\"\" in the \ncommand line. This will commit the files to your\nlocal repository.");
+                    output.setColor(Color.GREEN);
+                    output.setText("Well Done!");
+                    counter++;
+                } else if (counter == 3 && trimmed.equals("git commit -m \"message\"")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\nThis will add the files to the online repository.");
+                    output.setColor(Color.GREEN);
+                    output.setText("Correct!");
+                    counter++;
+                } else if (counter == 4 && trimmed.equals("git push")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git branch \"dev\"\" in the command line\nThis will create a branch of the repository\nwhere you can make changes to\na different version than the master.");
+                    output.setColor(Color.GREEN);
+                    output.setText("Well Done!");
+                    second.setTransparency(1f);
+                    connector1.setTransparency(1f);
+                    secondLabel.setText("035cc");
+                    counter++;
+                } else if (counter == 5 && trimmed.equals("git branch \"dev\"")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git checkout dev\" in the command line\n This will switch the branch you are editing.");
+                    third.setTransparency(1f);
+                    thirdLabel.setText("e3475");
+                    connector3.setTransparency(1f);
+                    output.setColor(Color.GREEN);
+                    output.setText("Correct!");
+                    counter++;
+                } else if (counter == 6 && trimmed.equals("git checkout dev")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git add README1.md\" in the command line\n This will add a file to the new branch.");
+                    output.setColor(Color.GREEN);
+                    output.setText("Well Done!");
+                    counter++;
+                } else if (counter == 7 && trimmed.equals("git add README1.md")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"README.md\"\" in the command line\n This will commit to the new branch.");
+                    output.setColor(Color.GREEN);
+                    output.setText("Correct!");
+                    counter++;
+                } else if (counter == 8 && trimmed.equals("git commit -m \"README.md\"")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\n This will push the new branch\nto the online repository.");
+                    counter++;
+                    output.setColor(Color.GREEN);
+                    output.setText("Well Done!");
+                } else if (counter == 9 && trimmed.equals("git push")){
+                    instructionsLabel.setText("Instructions:\nType in \"git merge dev master\" in the command line\nThis will merge the two branches\nto the master branch and will\nbring the files from dev to master.");
+                    fourthLabel.setText("76d12");
+                    fifth.setTransparency(1f);
+                    connector4.setTransparency(1f);
+                    output.setColor(Color.GREEN);
+                    output.setText("Correct!");
+                    counter++;
+                }else if (counter == 10 && trimmed.equals("git merge dev master")) {
+                    instructionsLabel.setText("Instructions:\nType in \"git reset 76d12\" in the command line\n This will reset the master branch to the previous commit.");
+                    fourth.setTransparency(1f);
+                    connector2.setTransparency(1f);
+                    connector5.setTransparency(1f);
+                    fifthLabel.setText("i8fe5");
+                    output.setColor(Color.GREEN);
+                    output.setText("Well Done!");
+                    counter++;
+                } else if (counter == 11 && trimmed.equals("git reset 76d12")) {
+                    instructionsLabel.setText("Instructions:\npress enter to go the next level.");
+                    fourth.setTransparency(0f);
+                    connector2.setTransparency(0f);
+                    connector5.setTransparency(0f);
+                    fifthLabel.setText("");
+                    output.setColor(Color.GREEN);
+                    output.setText("Correct!");
+                    counter++;
+                } else if (counter == 12) {
+                    output.setText("");
+                    gameSkin.getFont("commodore-64").getData().setScale(1f);
+                    game.setScreen(new Maze(game, 3));
+                } else {
+                    output.setColor(Color.RED);
+                    output.setText("Error, please enter the\ncorrect command");
+                }
             }
         }
     }

@@ -142,7 +142,10 @@ public class Snake3 implements Screen {
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git reset 9e78i")) {
+            if (consoleTextField.getText().split("\n").length<1){
+                output.setColor(Color.RED);
+                output.setText("Error, please enter the\ncorrect command");
+            } else if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git reset 9e78i")) {
                 output.setColor(Color.GREEN);
                 output.setText("Correct");
                 secondLabel.setText("");
