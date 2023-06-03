@@ -16,7 +16,7 @@ public class Maze implements Screen {
     private static final int MAZE_CELL_SIZE = Gdx.graphics.getWidth()/20; // Size of each maze cell in pixels
     private static final float CHARACTER_SPEED = 100f; // Character movement speed
 
-    private Game game;
+    private final Game game;
     private OrthographicCamera camera;
     private ShapeRenderer shapeRenderer;
 
