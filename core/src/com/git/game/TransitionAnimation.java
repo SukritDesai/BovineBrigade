@@ -1,7 +1,7 @@
 /**
  * Name: Kevin Kolyakov
  * Teacher: Ms. Krasteva
- * Description: The Animation class represents a screen that transitions from one color to another.
+ * Description: The TransitionAnimation class represents a screen that transitions from one color to another.
  */
 package com.git.game;
 
@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.TimeUtils;
 
-public class Animation implements Screen {
+public class TransitionAnimation implements Screen {
     private final long startTime;
     private final Color startColor = Color.BLACK;
     private final Color endColor = Color.WHITE;
@@ -22,13 +22,13 @@ public class Animation implements Screen {
 
 
     /**
-     * Constructs an Animation object.
+     * Constructs an TransitionAnimation object.
      *
      * @param aGame    The Game object that manages screens.
      * @param aScreen  The previous screen to return to after the animation.
      * @param aMessage The message to display in the popup screen after the animation.
      */
-    public Animation(Game aGame, Screen aScreen, String aMessage) {
+    public TransitionAnimation(Game aGame, Screen aScreen, String aMessage) {
         message = aMessage;
         screen = aScreen;
         game = aGame;
