@@ -30,6 +30,7 @@ import static com.git.game.GitOdyssey.gameSkin;
 public class LearningLevel implements Screen {
     private static final int SCREEN_WIDTH = 800;
     private static final int SCREEN_HEIGHT = 480;
+    private String errorMessage = "Make sure to read the instructions of the level\ntype in git clone https://odyssey.git and\npress enter to continue.";
 
     private Stage stage;
     private Viewport viewport;
@@ -150,7 +151,7 @@ public class LearningLevel implements Screen {
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             if (counter==1) {
-                instructionsLabel.setText("The first command relating to git that one\nmust learn is git clone which is used to\nclone a repository into your local machine.\nThe command is used as follows:\ngit clone <url>.The url is the url of the\nrepository that you want to clone.\nIn this case, the url is https://odyssey.\ngit. \nThe command is used as follows:\ngit clone https://odyssey.git");
+                instructionsLabel.setText("The first command relating to git that one\nmust learn is git clone which is used to\nclone a repository into your local machine.\nThe command is used as follows:\ngit clone <url>.The url is the url of the\nrepository that you want to clone.\nIn this case, the url is https://odyssey.git\nThe command is used as follows:\ngit clone https://odyssey.git");
             }
             if (consoleTextField.getText().split("\n").length<1){
                 output.setColor(Color.RED);
@@ -160,6 +161,7 @@ public class LearningLevel implements Screen {
                 String[] consoleText = consoleTextField.getText().split("\n");
                 String trimmed = consoleText[consoleText.length - 1].trim();
                 if (counter == 1 && trimmed.equals("git clone https://odyssey.git")) {
+                    errorMessage = "Use the command \"git add README.md\"\nto add the file to commit.";
                     instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\nThis will add the file to commit.");
                     first.setTransparency(1f);
                     firstLabel.setText("9e78i");
@@ -167,16 +169,19 @@ public class LearningLevel implements Screen {
                     output.setText("Cloning into 'odyssey'...\nremote: Enumerating objects: 3, done.\nremote: Counting objects: 100% (3/3), done.\nremote: Total 3 (delta 0), reused 0 (delta 0)\nUnpacking objects: 100% (3/3), done.");
                     counter++;
                 } else if (counter == 2 && trimmed.equals("git add README.md")) {
-                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"message\"\" in the \ncommand line. This will commit the files to your\nlocal repository.");
+                    errorMessage = "Use the command \"git commit -m \"message\" \"\nto commit the file.";
+                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"message\" \" in the \ncommand line. This will commit the files to your\nlocal repository.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                     counter++;
                 } else if (counter == 3 && trimmed.equals("git commit -m \"message\"")) {
+                    errorMessage = "Use the command \"git push\" to\nadd the files to the online repository.";
                     instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\nThis will add the files to the online repository.");
                     output.setColor(Color.GREEN);
                     output.setText("Correct!");
                     counter++;
                 } else if (counter == 4 && trimmed.equals("git push")) {
+                    errorMessage = "Use the command \"git branch \"dev\" \"\nto create a branch.";
                     instructionsLabel.setText("Instructions:\nType in \"git branch \"dev\"\" in the command line\nThis will create a branch of the repository\nwhere you can make changes to\na different version than the master.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
@@ -185,6 +190,7 @@ public class LearningLevel implements Screen {
                     secondLabel.setText("035cc");
                     counter++;
                 } else if (counter == 5 && trimmed.equals("git branch \"dev\"")) {
+                    errorMessage = "Use the command \"git checkout dev\" to\nswitch to the new branch.";
                     instructionsLabel.setText("Instructions:\nType in \"git checkout dev\" in the command line\n This will switch the branch you are editing.");
                     third.setTransparency(1f);
                     thirdLabel.setText("e3475");
@@ -193,21 +199,25 @@ public class LearningLevel implements Screen {
                     output.setText("Correct!");
                     counter++;
                 } else if (counter == 6 && trimmed.equals("git checkout dev")) {
-                    instructionsLabel.setText("Instructions:\nType in \"git add README1.md\" in the command line\n This will add a file to the new branch.");
+                    errorMessage = "Use the command \"git add README.md\" to\nadd a file to the new branch.";
+                    instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\n This will add a file to the new branch.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                     counter++;
-                } else if (counter == 7 && trimmed.equals("git add README1.md")) {
-                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"README.md\"\" in the command line\n This will commit to the new branch.");
+                } else if (counter == 7 && trimmed.equals("git add README.md")) {
+                    errorMessage = "Use the command \"git commit -m \"README.md\" \"\nto commit to the new branch.";
+                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"README.md\" \" in the command line\n This will commit to the new branch.");
                     output.setColor(Color.GREEN);
                     output.setText("Correct!");
                     counter++;
                 } else if (counter == 8 && trimmed.equals("git commit -m \"README.md\"")) {
-                    instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\n This will push the new branch\nto the online repository.");
+                    errorMessage = "Use the command \"git push\" to push the\nnew branch to the online repository.";
+                    instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\nThis will push the new branch\nto the online repository.");
                     counter++;
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                 } else if (counter == 9 && trimmed.equals("git push")){
+                    errorMessage = "Use the command \"git merge dev master\"\nto merge the two branches.";
                     instructionsLabel.setText("Instructions:\nType in \"git merge dev master\" in the command line\nThis will merge the two branches\nto the master branch and will\nbring the files from dev to master.");
                     fourthLabel.setText("76d12");
                     fifth.setTransparency(1f);
@@ -216,6 +226,7 @@ public class LearningLevel implements Screen {
                     output.setText("Correct!");
                     counter++;
                 }else if (counter == 10 && trimmed.equals("git merge dev master")) {
+                    errorMessage = "Use the command \"git reset 76d12\" to\nreset the master branch to the previous commit.";
                     instructionsLabel.setText("Instructions:\nType in \"git reset 76d12\" in the command line\n This will reset the master branch to the previous commit.");
                     fourth.setTransparency(1f);
                     connector2.setTransparency(1f);
@@ -239,7 +250,7 @@ public class LearningLevel implements Screen {
                     game.setScreen(new Animation(game, new Maze(game, 3), "Welcome to the Git maze,\nFinish the maze to continue your\nmastery of Git"));
                 } else {
                     output.setColor(Color.RED);
-                    output.setText("Error, please enter the\ncorrect command");
+                    output.setText("Error:\n"+errorMessage);
                 }
             }
         }

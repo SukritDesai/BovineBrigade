@@ -28,7 +28,7 @@ import static com.git.game.GitOdyssey.gameSkin;
 public class Snake2 implements Screen {
     private static final int SCREEN_WIDTH = 800;
     private static final int SCREEN_HEIGHT = 480;
-
+    private String errorMessage = "Make sure to read the\ninstructions of the level\ntype in the git branch\ncommand correctly.";
     private Stage stage;
     private Viewport viewport;
     private SpriteBatch spriteBatch;
@@ -44,6 +44,7 @@ public class Snake2 implements Screen {
 
     @Override
     public void show() {
+        gameSkin.getFont("commodore-64").getData().setScale(0.8f);
         OrthographicCamera camera = new OrthographicCamera();
         viewport = new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT, camera);
         spriteBatch = new SpriteBatch();
@@ -125,7 +126,7 @@ public class Snake2 implements Screen {
         consoleTextField.setSize(consoleWidth+80, 310);
         consoleTextField.setPosition(consoleX+10, 20);
         output = new Label("", gameSkin, "default");
-        output.setPosition(consoleX+20, 50);
+        output.setPosition(consoleX+20, 80);
         output.setSize(20, 20);
         output.setColor(Color.BLACK);
 
@@ -151,10 +152,11 @@ public class Snake2 implements Screen {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             if (consoleTextField.getText().split("\n").length<1){
                 output.setColor(Color.RED);
-                output.setText("Error, please enter the\ncorrect command");
+                output.setText(errorMessage);
 
             } else if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git branch \"dev\"")) {
                 output.setColor(Color.GREEN);
+                errorMessage = "please enter the git checkout\ncommand with the branch name";
                 output.setText("Correct!");
                 third.setTransparency(1f);
                 thirdLabel.setText("dev");
@@ -163,20 +165,24 @@ public class Snake2 implements Screen {
 
             } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git checkout dev")) {
                 output.setColor(Color.GREEN);
+                errorMessage = "please enter the git add\ncommand followed\nby the file name";
                 output.setText("Well Done!");
                 counter++;
 
             }else if (counter == 2 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {
                 output.setColor(Color.GREEN);
+                errorMessage = "please enter the git commit\ncommand followed\nby the message";
                 output.setText("Correct!");
                 counter++;
 
             }else if (counter == 3 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"readme\"")) {
                 output.setColor(Color.GREEN);
+                errorMessage = "please enter the git push\ncommand";
                 output.setText("Well Done!");
                 counter++;
             }else if (counter == 4 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git push")) {
                 output.setColor(Color.GREEN);
+                errorMessage = "please enter the git merge\ncommand followed by\nthe branch names";
                 output.setText("Correct!");
                 fourthLabel.setText("76d12");
                 fifth.setTransparency(1f);
@@ -188,12 +194,13 @@ public class Snake2 implements Screen {
                 connector5.setTransparency(1f);
                 fifthLabel.setText("i8fe5");
                 instructionsLabel.setText("\n\nYou have completed the first challenge!\nPress enter to continue");
+                output.setText("Well Done!");
                 counter++;
             }else if (counter == 6) {
                 game.setScreen(new Maze(game, 1));;
             } else {
                 output.setColor(Color.RED);
-                output.setText("Error, please enter the\ncorrect command");
+                output.setText("Error:\n"+errorMessage);
             }
         }
     }
