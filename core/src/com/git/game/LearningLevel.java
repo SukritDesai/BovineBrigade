@@ -162,7 +162,7 @@ public class LearningLevel implements Screen {
                 String trimmed = consoleText[consoleText.length - 1].trim();
                 if (counter == 1 && trimmed.equals("git clone https://odyssey.git")) {
                     errorMessage = "Use the command \"git add README.md\"\nto add the file to commit.";
-                    instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\nThis will add the file to commit.");
+                    instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\nThis will add the file to commit\nand your online project.");
                     first.setTransparency(1f);
                     firstLabel.setText("9e78i");
                     output.setColor(Color.GREEN);
@@ -170,19 +170,19 @@ public class LearningLevel implements Screen {
                     counter++;
                 } else if (counter == 2 && trimmed.equals("git add README.md")) {
                     errorMessage = "Use the command \"git commit -m \"message\" \"\nto commit the file.";
-                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"message\" \" in the \ncommand line. This will commit the files to your\nlocal repository.");
+                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"message\" \" in the \ncommand line. This will commit the files to your\nlocal repository and the project.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                     counter++;
                 } else if (counter == 3 && trimmed.equals("git commit -m \"message\"")) {
                     errorMessage = "Use the command \"git push\" to\nadd the files to the online repository.";
-                    instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\nThis will add the files to the online repository.");
+                    instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\nThis will add the files to the commit(new update)\nof the project.");
                     output.setColor(Color.GREEN);
                     output.setText("Correct!");
                     counter++;
                 } else if (counter == 4 && trimmed.equals("git push")) {
                     errorMessage = "Use the command \"git branch \"dev\" \"\nto create a branch.";
-                    instructionsLabel.setText("Instructions:\nType in \"git branch \"dev\"\" in the command line\nThis will create a branch of the repository\nwhere you can make changes to\na different version than the master.");
+                    instructionsLabel.setText("Instructions:\nType in \"git branch \"dev\" \" in the command line\nThis will create a branch of the repository\nwhere you can make changes to\na different version than the master.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                     second.setTransparency(1f);
@@ -200,13 +200,13 @@ public class LearningLevel implements Screen {
                     counter++;
                 } else if (counter == 6 && trimmed.equals("git checkout dev")) {
                     errorMessage = "Use the command \"git add README.md\" to\nadd a file to the new branch.";
-                    instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\n This will add a file to the new branch.");
+                    instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\nThis will add a file to the new branch.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                     counter++;
                 } else if (counter == 7 && trimmed.equals("git add README.md")) {
                     errorMessage = "Use the command \"git commit -m \"README.md\" \"\nto commit to the new branch.";
-                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"README.md\" \" in the command line\n This will commit to the new branch.");
+                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"README.md\" \" in the command line\nThis will commit to the new branch.");
                     output.setColor(Color.GREEN);
                     output.setText("Correct!");
                     counter++;
@@ -227,7 +227,7 @@ public class LearningLevel implements Screen {
                     counter++;
                 }else if (counter == 10 && trimmed.equals("git merge dev master")) {
                     errorMessage = "Use the command \"git reset 76d12\" to\nreset the master branch to the previous commit.";
-                    instructionsLabel.setText("Instructions:\nType in \"git reset 76d12\" in the command line\n This will reset the master branch to the previous commit.");
+                    instructionsLabel.setText("Instructions:\nType in \"git reset 76d12\" in the command line\nThis will reset the master branch to the previous\ncommit.");
                     fourth.setTransparency(1f);
                     connector2.setTransparency(1f);
                     connector5.setTransparency(1f);
