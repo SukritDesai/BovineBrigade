@@ -19,8 +19,8 @@ public class Character {
     private int row;
     public float x = 100, y = 100;
 
-    public Character() {
-        character = new Texture("character.png");
+    public Character(String sheetName) {
+        character = new Texture(sheetName);
         int FRAME_COLS = 9;
         int FRAME_ROWS = 4;
         frames = TextureRegion.split(character, character.getWidth() / FRAME_COLS, character.getHeight() / FRAME_ROWS);

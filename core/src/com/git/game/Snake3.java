@@ -108,7 +108,7 @@ public class Snake3 implements Screen {
         stage.addActor(fifthLabel);
 
         // Create and position the instructions label in the top right
-        instructionsLabel = new Label("\n\nInstructions:\nThe last commit made by a user was \nfaulty (9e78i). Reset the commit.", gameSkin, "default");
+        instructionsLabel = new Label("\n\nInstructions:\nThe last commit made by a user was \nfaulty. Reset the commit.", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight()+20);
         instructionsLabel.setFontScale(0.6f);
 

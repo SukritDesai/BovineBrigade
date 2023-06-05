@@ -225,7 +225,7 @@ public class LearningLevel implements Screen {
                     output.setColor(Color.GREEN);
                     output.setText("Correct!");
                     counter++;
-                }else if (counter == 10 && trimmed.equals("git merge dev master")) {
+                } else if (counter == 10 && trimmed.equals("git merge dev master")) {
                     errorMessage = "Use the command \"git reset 76d12\" to\nreset the master branch to the previous commit.";
                     instructionsLabel.setText("Instructions:\nType in \"git reset 76d12\" in the command line\nThis will reset the master branch to the previous\ncommit.");
                     fourth.setTransparency(1f);
@@ -247,7 +247,7 @@ public class LearningLevel implements Screen {
                 } else if (counter == 12) {
                     output.setText("");
                     gameSkin.getFont("commodore-64").getData().setScale(1f);
-                    game.setScreen(new Animation(game, new Maze(game, 3), "Welcome to the Git maze,\nFinish the maze to continue your\nmastery of Git"));
+                    game.setScreen(new TransitionAnimation(game, new Maze(game, 3), "Welcome to the Git maze,\nFinish the maze to continue your\nmastery of Git"));
                 } else {
                     output.setColor(Color.RED);
                     output.setText("Error:\n"+errorMessage);

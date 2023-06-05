@@ -18,7 +18,7 @@ public class FinalLevel implements Screen {
     private Character character;
 
     public FinalLevel() {
-        character = new Character();
+        character = new Character("character.png");
     }
 
     @Override

@@ -64,7 +64,7 @@ public class Maze implements Screen {
                     {1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1},
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
             };
-        } else if (numSnakes== 2){
+        } else if (numSnakes == 2){
             maze = new int[][]{
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                     {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -115,7 +115,7 @@ public class Maze implements Screen {
         mazeWidth = maze[0].length;
         mazeHeight = maze.length;
 
-        character = new Character();
+        character = new Character("character.png");
         // character.set(characterX, characterY, MAZE_CELL_SIZE/2, MAZE_CELL_SIZE/2);
         characterVelocity = new Vector2();
     }
@@ -213,7 +213,7 @@ public class Maze implements Screen {
                         game.setScreen(new Popup(game, new Snake3(game), "You have encountered a snake!\nComplete the snake's challenge to continue."));
                     }
                 } else if (maze[row][col] == 3 && characterRect.overlaps(wallRect)) {
-                    game.setScreen(new Popup(game, new MainMenu(game), "You have Completed the maze!\nContinue to your final challenge."));
+                    game.setScreen(new Popup(game, new FinalLevel(), "You have Completed the maze!\nContinue to your final challenge."));
                 }
             }
         }
