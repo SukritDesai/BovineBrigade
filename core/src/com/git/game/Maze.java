@@ -33,10 +33,11 @@ public class Maze implements Screen {
             {1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
     };
+
     private int mazeWidth;
     private int mazeHeight;
 
-    private Rectangle character;
+    private Character character;
     public static float characterX = MAZE_CELL_SIZE;
     public static float characterY = MAZE_CELL_SIZE;
     private Vector2 characterVelocity;
@@ -114,8 +115,8 @@ public class Maze implements Screen {
         mazeWidth = maze[0].length;
         mazeHeight = maze.length;
 
-        character = new Rectangle();
-        character.set(characterX, characterY, MAZE_CELL_SIZE/2, MAZE_CELL_SIZE/2);
+        character = new Character();
+        // character.set(characterX, characterY, MAZE_CELL_SIZE/2, MAZE_CELL_SIZE/2);
         characterVelocity = new Vector2();
     }
 
@@ -152,10 +153,11 @@ public class Maze implements Screen {
                 }
             }
         }
-
+        character.update(delta);
+        character.render();
         // Render the character
         shapeRenderer.setColor(Color.GOLD);
-        shapeRenderer.rect(character.x, character.y, character.width, character.height);
+        // shapeRenderer.rect(character.x, character.y, character.width, character.height);
 
         shapeRenderer.end();
     }
@@ -189,7 +191,7 @@ public class Maze implements Screen {
         int characterCol = (int) (character.x / MAZE_CELL_SIZE);
         int characterRow = (int) (character.y / MAZE_CELL_SIZE);
 
-        Rectangle characterRect = new Rectangle(character.x, character.y, character.width, character.height);
+        Rectangle characterRect = new Rectangle(character.x, character.y, 64, 64);
 
         for (int row = characterRow; row <= characterRow + 1; row++) {
             for (int col = characterCol; col <= characterCol + 1; col++) {

@@ -41,7 +41,7 @@ public class MainMenu implements Screen {
         introButton.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new Animation(game, new LearningLevel(game), "Follow the instructions and complete the tasks to learn about Git"));
+                game.setScreen(new TransitionAnimation(game, new LearningLevel(game), "Follow the instructions and complete the tasks to learn about Git"));
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
@@ -57,7 +57,7 @@ public class MainMenu implements Screen {
         finalButton.addListener(new InputListener(){
                 @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new Animation(game, new Room(game), "Complete the maze and final level to test your knowledge on Git"));
+                game.setScreen(new TransitionAnimation(game, new Room(game), "Complete the maze and final level to test your knowledge on Git"));
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
