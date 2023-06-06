@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -18,6 +17,10 @@ public class Character {
     private float stateTime;
     private int row;
     public float x = 100, y = 100;
+    private float velocityY = 0;
+    private static final float GRAVITY = -50f;
+    private static final float JUMP_VELOCITY = 20f;
+    private boolean grounded = true;
 
     public Character(String sheetName) {
         character = new Texture(sheetName);
@@ -37,7 +40,6 @@ public class Character {
 
         // Reset position delta
         float deltaX = 0;
-        float deltaY = 0;
 
         // Update character movement based on key presses
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
@@ -48,22 +50,29 @@ public class Character {
             row = 3;
             deltaX += speed * delta;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && grounded) {
             row = 0;
-            deltaY += speed * delta;
+            velocityY = JUMP_VELOCITY;
+            grounded = false;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            row = 2;
-            deltaY -= speed * delta;
-        }
+
+        // Apply gravity
+        velocityY += GRAVITY * delta;
 
         // Update character position
         x += deltaX;
-        y += deltaY;
+        y += velocityY;
+
+        // Check if character is grounded
+        if (y <= 100) {
+            y = 100;
+            grounded = true;
+            velocityY = 0;
+        }
+
         TextureRegion[] walkFrames = frames[row];
         animation = new Animation<>(0.25f, walkFrames);
     }
-
 
     public void render() {
         stateTime += Gdx.graphics.getDeltaTime();
