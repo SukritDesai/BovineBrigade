@@ -64,7 +64,6 @@ public class Character {
         animation = new Animation<>(0.25f, walkFrames);
     }
 
-
     public void render() {
         stateTime += Gdx.graphics.getDeltaTime();
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

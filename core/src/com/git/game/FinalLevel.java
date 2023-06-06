@@ -13,11 +13,16 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 
 public class FinalLevel implements Screen {
     private final OrthogonalTiledMapRenderer tiledMapRenderer;
     private final Character character;
     private final OrthographicCamera camera;
+    private World world;
+    private Box2DDebugRenderer debugRenderer;
 
     public FinalLevel() {
         character = new Character("character.png");
@@ -25,6 +30,8 @@ public class FinalLevel implements Screen {
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1280, 720);
+        world = new World(new Vector2(0, -9.8f), true);
+        debugRenderer = new Box2DDebugRenderer();
     }
 
     @Override
