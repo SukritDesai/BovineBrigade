@@ -182,26 +182,25 @@ public class Maze implements Screen {
         float oldX = character.x;
         float oldY = character.y;
 
-        character.x += characterVelocity.x * delta;
-        characterX = character.x;
-        character.y += characterVelocity.y * delta;
-        characterY = character.y;
+        characterX += characterVelocity.x * delta;
+        character.x = characterX;
+        characterY += characterVelocity.y * delta;
+        character.y = characterY;
 
         // Check for collision with maze walls
         int characterCol = (int) (character.x / MAZE_CELL_SIZE);
         int characterRow = (int) (character.y / MAZE_CELL_SIZE);
 
-        Rectangle characterRect = new Rectangle(character.x, character.y, 64, 64);
+        Rectangle characterRect = new Rectangle(character.x+15, character.y+10, 25, 50);
 
         for (int row = characterRow; row <= characterRow + 1; row++) {
             for (int col = characterCol; col <= characterCol + 1; col++) {
-                Rectangle wallRect = new Rectangle(col * MAZE_CELL_SIZE, row * MAZE_CELL_SIZE,
-                        MAZE_CELL_SIZE, MAZE_CELL_SIZE);
+                Rectangle wallRect = new Rectangle(col * MAZE_CELL_SIZE, row * MAZE_CELL_SIZE, MAZE_CELL_SIZE, MAZE_CELL_SIZE);
                 if (maze[row][col] == 1) {
                     if (characterRect.overlaps(wallRect)) {
                         // Collision with wall or top wall, move character back to previous position
-                        character.x = oldX;
-                        character.y = oldY;
+                        characterX = oldX;
+                        characterY = oldY;
                     }
                 } else if (maze[row][col] == 2) {
 
@@ -213,7 +212,7 @@ public class Maze implements Screen {
                         game.setScreen(new Popup(game, new Snake3(game), "You have encountered a snake!\nComplete the snake's challenge to continue."));
                     }
                 } else if (maze[row][col] == 3 && characterRect.overlaps(wallRect)) {
-                    game.setScreen(new Popup(game, new FinalLevel(), "You have Completed the maze!\nContinue to your final challenge."));
+                    game.setScreen(new TransitionAnimation(game, new FinalLevel(), "You have Completed the maze!\nContinue to your final challenge."));
                 }
             }
         }

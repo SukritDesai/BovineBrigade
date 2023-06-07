@@ -21,6 +21,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
+import static com.git.game.Character.health;
+
 public class MultipleChoice implements Screen {
 
     private final Stage stage;
@@ -163,6 +165,7 @@ public class MultipleChoice implements Screen {
                 else {
                     fourthAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
+                    health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);
@@ -194,7 +197,12 @@ public class MultipleChoice implements Screen {
             questionNum++;
             if (questionNum == answer1.length)
                 questionNum = 0;
-            game.setScreen(new MultipleChoice(game));
+            if (health==0) {
+                health = 3;
+                game.setScreen(new Popup(game, new MainMenu(game), "You have lost all your health!\nYou have been sent back to the main menu\nto learn more about Git!"));
+            } else {
+                game.setScreen(new FinalLevel());
+            }
         }
     }
 

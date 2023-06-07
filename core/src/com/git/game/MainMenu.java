@@ -57,7 +57,7 @@ public class MainMenu implements Screen {
         finalButton.addListener(new InputListener(){
                 @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new TransitionAnimation(game, new Room(game), "Complete the maze and final level to test your knowledge on Git"));
+                game.setScreen(new TransitionAnimation(game, new Maze(game, 3), "Complete the maze and final level to test your knowledge on Git\nUse arrow keys to control the character"));
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {

@@ -8,6 +8,7 @@ package com.git.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -37,18 +38,10 @@ public class Popup implements Screen {
         Table table = new Table();
         table.setFillParent(true);
 
-        Label popupLabel = new Label(message, gameSkin);
+        Label popupLabel = new Label(message+"\nPress enter to continue", gameSkin);
         table.add(popupLabel);
 
         stage.addActor(table);
-
-        table.setVisible(false);
-
-        // Show the popup with a fade-in effect
-        table.addAction(Actions.sequence(Actions.delay(1.0f), Actions.show(), Actions.fadeIn(0.5f)));
-
-        // Hide the popup after a couple of seconds
-        table.addAction(Actions.sequence(Actions.delay(7.5f), Actions.fadeOut(0.5f), Actions.hide()));
     }
 
     @Override
@@ -67,7 +60,7 @@ public class Popup implements Screen {
         stage.draw();
 
         // Check if the popup has finished displaying
-        if (TimeUtils.timeSinceMillis(startTime) >= 7500) {
+        if(Gdx.input.isKeyPressed(Input.Keys.ENTER)){
             // Transition to the game screen
             game.setScreen(screen);
         }

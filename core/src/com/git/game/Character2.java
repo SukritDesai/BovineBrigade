@@ -4,16 +4,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.Animation;
 
-import static com.git.game.Maze.characterX;
-import static com.git.game.Maze.characterY;
-
-public class Character {
-
+public class Character2 {
+    private float velocityY = 0;
+    private static final float GRAVITY = -50f;
+    private static final float JUMP_VELOCITY = 20f;
+    private boolean grounded = true;
     private final SpriteBatch batch;
     public static int health = 3;
     private final Texture character;
@@ -21,9 +20,9 @@ public class Character {
     private Animation<TextureRegion> animation;
     private float stateTime;
     private int row;
-    public float x = 100, y = 100;
+    public float x = 100, y = 200;
 
-    public Character(String sheetName) {
+    public Character2(String sheetName) {
         character = new Texture(sheetName);
         int FRAME_COLS = 9;
         int FRAME_ROWS = 4;
@@ -35,25 +34,42 @@ public class Character {
     }
 
     public void update(float delta) {
+        float speed = 200f;
+
         stateTime += delta;
+
+        // Reset position delta
+        float deltaX = 0;
 
         // Update character movement based on key presses
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             row = 1;
+            deltaX -= speed * delta;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             row = 3;
+            deltaX += speed * delta;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && grounded) {
             row = 0;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            row = 2;
+            velocityY = JUMP_VELOCITY;
+            grounded = false;
         }
 
+        // Apply gravity
+        velocityY += GRAVITY * delta;
+
         // Update character position
-        x = characterX;
-        y = characterY;
+        x += deltaX;
+        y += velocityY;
+
+        // Check if character is grounded
+        if (y <= 150) {
+            y = 150;
+            grounded = true;
+            velocityY = 0;
+        }
+
         TextureRegion[] walkFrames = frames[row];
         animation = new Animation<>(0.25f, walkFrames);
     }
