@@ -201,7 +201,7 @@ public class MultipleChoice implements Screen {
                 health = 3;
                 game.setScreen(new Popup(game, new MainMenu(game), "You have lost all your health!\nYou have been sent back to the main menu\nto learn more about Git!"));
             } else {
-                game.setScreen(new FinalLevel());
+                game.setScreen(new FinalLevel(game));
             }
         }
     }
