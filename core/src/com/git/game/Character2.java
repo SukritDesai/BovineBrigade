@@ -104,9 +104,6 @@ public class Character2 {
         if (getTileIdSpikes(x+18, y+32) != -1||getTileIdSpikes(x+40, y+32) != -1|| getTileIdSpikes(x+18, y+12) != -1||getTileIdSpikes(x+40, y+12) != -1){
             game.setScreen(new Popup(game, new MultipleChoice(game), "You have hit a spike!\nComplete the multiple choice question to not lose a heart!"));
         }
-        if (getTileIdHole(x+18, y+32) != -1||getTileIdHole(x+40, y+32) != -1|| getTileIdHole(x+18, y+12) != -1||getTileIdHole(x+40, y+12) != -1){
-            game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
-        }
 
         if (getTileIdGhost(x+18, y+32) != -1||getTileIdGhost(x+40, y+32) != -1|| getTileIdGhost(x+18, y+12) != -1||getTileIdGhost(x+40, y+12) != -1){
             game.setScreen(new Popup(game, new MultipleChoice(game), "A ghost has caught you!\nComplete the multiple choice question to not lose a heart!"));
@@ -124,11 +121,10 @@ public class Character2 {
 
         if (getTileId(x+18, y+12) != -1||getTileId(x+48, y+12) != -1) {
             this.y = oldY;
+            velocityY = 0;
             grounded = true;
         }
         if (getTileId(x+18, y+40) == 40||getTileId(x+48, y+40) == 40){
-            System.out.println((x+18) + " "+ (y+12));
-            System.out.println("Hole");
             game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
         }
     }
