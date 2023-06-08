@@ -9,9 +9,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
 
+import static com.git.game.Maze.characterX;
+import static com.git.game.Maze.characterY;
+
 public class Character {
 
     private final SpriteBatch batch;
+    public static int health = 3;
     private final Texture character;
     private final TextureRegion[][] frames;
     private Animation<TextureRegion> animation;
@@ -31,35 +35,25 @@ public class Character {
     }
 
     public void update(float delta) {
-        float speed = 200f;
-
         stateTime += delta;
-
-        // Reset position delta
-        float deltaX = 0;
-        float deltaY = 0;
 
         // Update character movement based on key presses
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             row = 1;
-            deltaX -= speed * delta;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             row = 3;
-            deltaX += speed * delta;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             row = 0;
-            deltaY += speed * delta;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             row = 2;
-            deltaY -= speed * delta;
         }
 
         // Update character position
-        x += deltaX;
-        y += deltaY;
+        x = characterX;
+        y = characterY;
         TextureRegion[] walkFrames = frames[row];
         animation = new Animation<>(0.25f, walkFrames);
     }

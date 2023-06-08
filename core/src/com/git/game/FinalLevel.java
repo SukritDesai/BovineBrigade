@@ -4,13 +4,29 @@
  * Description: Class for the final level that runs the platformer game.
  * */
 
+
+/**
+ * Todo:
+ * - Add a way to win the game
+ * - Change map to have spikes/collision with spikes
+ * - Comment code
+ * - Possibly add an enemy character with collision
+ * - Generate JavaDoc
+ */
+
 package com.git.game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -18,20 +34,38 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class FinalLevel implements Screen {
-    private final OrthogonalTiledMapRenderer tiledMapRenderer;
-    private final Character character;
-    private final OrthographicCamera camera;
-    private World world;
-    private Box2DDebugRenderer debugRenderer;
+    static TiledMap map = new TmxMapLoader().load("GameMap.tmx");
+    public final OrthogonalTiledMapRenderer tiledMapRenderer;
+    private final Character2 character;
+    public static final OrthographicCamera camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());;
+    private SpriteBatch spriteBatch = new SpriteBatch();
+    private final Texture imageTexture = new Texture("Heart.png");
+    public static TiledMapTileLayer collisionLayer = (TiledMapTileLayer) map.getLayers().get(0);
+    public static Game game;
+    private ShapeRenderer shapeRenderer;
+    public static int cameraMovedCount = 0;
 
-    public FinalLevel() {
-        character = new Character("character.png");
-        TiledMap map = new TmxMapLoader().load("GameMap.tmx");
+
+    public FinalLevel(Game game) {
+        cameraMovedCount = 0;
+        collisionLayer = (TiledMapTileLayer) map.getLayers().get(0);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, 1280, 720);
-        world = new World(new Vector2(0, -9.8f), true);
-        debugRenderer = new Box2DDebugRenderer();
+        float screenWidth = Gdx.graphics.getWidth();
+        float screenHeight = Gdx.graphics.getHeight();
+        camera.position.set(screenWidth / 2, screenHeight / 2, 0);
+        camera.update();
+        shapeRenderer = new ShapeRenderer();
+        character = new Character2("character.png");
+        this.game = game;
+    }
+
+
+    private void updateCamera() {
+        camera.position.x++;
+        cameraMovedCount++;
+        character.x--;
+        camera.update();
+      
     }
 
     @Override
@@ -41,15 +75,42 @@ public class FinalLevel implements Screen {
 
     @Override
     public void render(float delta) {
+        updateCamera();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         character.update(delta);
         character.render();
 
+
+
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
+
+
+        spriteBatch.begin();
+        if (character.health==1) {
+            System.out.println("1 health");
+            spriteBatch.draw(imageTexture, 0, 0);
+        } else if (character.health==2) {
+            System.out.println("2 health");
+            spriteBatch.draw(imageTexture, 0, 0);
+            spriteBatch.draw(imageTexture, 50, 0);
+        } else if (character.health==3) {
+            System.out.println("3 health");
+            spriteBatch.draw(imageTexture, 0, 0);
+            spriteBatch.draw(imageTexture, 50, 0);
+            spriteBatch.draw(imageTexture, 100, 0);
+        }
+        spriteBatch.end();
+
+        if(character.y<100){
+            game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen, you must complete this question to not lose health\nIf you lose all 3 health you will be sent back to the main menu"));
+        }
+
+        camera.update();
     }
+
 
     @Override
     public void resize(int width, int height) {
