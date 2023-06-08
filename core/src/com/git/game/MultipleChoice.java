@@ -86,6 +86,7 @@ public class MultipleChoice implements Screen {
                 else {
                     firstAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
+                    health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);
@@ -112,6 +113,7 @@ public class MultipleChoice implements Screen {
                 else {
                     secondAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
+                    health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);
@@ -138,6 +140,7 @@ public class MultipleChoice implements Screen {
                 else {
                     thirdAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
+                    health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);

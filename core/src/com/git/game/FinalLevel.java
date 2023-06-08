@@ -9,32 +9,53 @@ package com.git.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 import static com.git.game.Character2.health;
 
 public class FinalLevel implements Screen {
     static TiledMap map = new TmxMapLoader().load("GameMap.tmx");
-    public static final OrthogonalTiledMapRenderer tiledMapRenderer = new OrthogonalTiledMapRenderer(map);;
+    public final OrthogonalTiledMapRenderer tiledMapRenderer;
     private final Character2 character;
-    private final OrthographicCamera camera;
+    public static final OrthographicCamera camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());;
     private SpriteBatch spriteBatch = new SpriteBatch();
     private final Texture imageTexture = new Texture("Heart.png");
     public static TiledMapTileLayer collisionLayer = (TiledMapTileLayer) map.getLayers().get(0);
-    private Game game;
+    public static Game game;
+    private ShapeRenderer shapeRenderer;
+    public static int cameraMovedCount = 0;
+
 
     public FinalLevel(Game game) {
+        cameraMovedCount = 0;
+        collisionLayer = (TiledMapTileLayer) map.getLayers().get(0);
+        tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
+        float screenWidth = Gdx.graphics.getWidth();
+        float screenHeight = Gdx.graphics.getHeight();
+        camera.position.set(screenWidth / 2, screenHeight / 2, 0);
+        camera.update();
+        shapeRenderer = new ShapeRenderer();
         character = new Character2("character.png");
         this.game = game;
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, 1280, 720);
+    }
+
+
+    private void updateCamera() {
+        camera.position.x++;
+        cameraMovedCount++;
+        character.x--;
+        camera.update();
     }
 
     @Override
@@ -44,14 +65,15 @@ public class FinalLevel implements Screen {
 
     @Override
     public void render(float delta) {
+        updateCamera();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         character.update(delta);
         character.render();
 
-//        camera.translate(character.x-camera.position.x, 0);
-        camera.update();
+
+
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
 
@@ -72,6 +94,8 @@ public class FinalLevel implements Screen {
         if(character.y<100){
             game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen, you must complete this question to not lose health\nIf you lose all 3 health you will be sent back to the main menu"));
         }
+
+        camera.update();
     }
 
 

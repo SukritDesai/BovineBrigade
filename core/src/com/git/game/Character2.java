@@ -2,14 +2,17 @@ package com.git.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Vector3;
 
-import static com.git.game.FinalLevel.collisionLayer;
+import static com.git.game.FinalLevel.*;
 
 public class Character2 {
 
@@ -24,10 +27,12 @@ public class Character2 {
     private Animation<TextureRegion> animation;
     private float stateTime;
     private int row;
-    public float x = 100, y = 200;
+    public float x, y;
     public float oldX, oldY;
 
     public Character2(String sheetName) {
+        x = 100;
+        y = 150;
         character = new Texture(sheetName);
         int FRAME_COLS = 9;
         int FRAME_ROWS = 4;
@@ -39,6 +44,7 @@ public class Character2 {
     }
 
     public void update(float delta) {
+
         oldX = x;
         oldY = y;
         float speed = 200f;
@@ -74,6 +80,9 @@ public class Character2 {
         y += velocityY * delta;
 
         checkCollision(x, y);
+        if (x < 0) {
+            x = 0;
+        }
 
 
         TextureRegion[] walkFrames = frames[row];
@@ -94,30 +103,30 @@ public class Character2 {
         character.dispose();
     }
     private void checkCollision(float x, float y) {
-        if (checkCollisionSide(x+5, y+10) == 41 || checkCollisionSide(x-5, y) == 41){
+        if (getTileId(x+15, y+32) != -1 || getTileId(x+51, y+32) != -1){
             this.x = oldX;
         }
-        if (checkCollisionSide(x, y-15) != -1){
+        if (getTileId(x+18, y+62) != -1 || getTileId(x+48, y+62) != -1){
             velocityY = 0;
         }
-        if (checkCollisionSide(x, y+12) != -1){
+        if (getTileId(x+18, y+12) == 40||getTileId(x+48, y+12) == 40){
+            game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
+        }
+        if (getTileId(x+18, y+12) != -1||getTileId(x+48, y+12) != -1) {
             this.y = oldY;
             grounded = true;
         }
-
     }
 
-    private static int checkCollisionSide(float x, float y) {
-        int tileX = (int) (x / collisionLayer.getTileWidth());
+    private int getTileId(float x, float y) {
+        int tileX = (int) ((x+cameraMovedCount) / FinalLevel.collisionLayer.getTileWidth());
         int tileY = (int) (y / collisionLayer.getTileHeight());
 
-        // Check if the character's bottom collides with any solid tile
         TiledMapTileLayer.Cell cell = collisionLayer.getCell(tileX, tileY);
-        if (cell != null && cell.getTile() != null && cell.getTile().getId() != 40) {
-            return cell.getTile().getId(); // Collision detected
+        if (cell != null && cell.getTile() != null) {
+            return cell.getTile().getId()-1;
         }
-
-        return -1; // No collision
+        return -1;
     }
 
 }
