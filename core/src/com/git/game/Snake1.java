@@ -171,7 +171,7 @@ public class Snake1 implements Screen {
                 counter++;
 
             }else if (counter == 3) {
-                game.setScreen(new Maze(game, 2));
+                game.setScreen(new Maze(game));
 
             } else {
                 output.setColor(Color.RED);

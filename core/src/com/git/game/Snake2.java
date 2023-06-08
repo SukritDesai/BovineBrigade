@@ -197,7 +197,7 @@ public class Snake2 implements Screen {
                 output.setText("Well Done!");
                 counter++;
             }else if (counter == 6) {
-                game.setScreen(new Maze(game, 1));;
+                game.setScreen(new Maze(game));;
             } else {
                 output.setColor(Color.RED);
                 output.setText("Error:\n"+errorMessage);

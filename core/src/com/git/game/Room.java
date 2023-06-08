@@ -82,7 +82,7 @@ public class Room implements Screen {
             if (character.overlaps(computer)) {
                 isInteracting = true;
                 // Open the computer screen
-                game.setScreen(new Maze(game, 3));
+                game.setScreen(new Maze(game));
             }
         }
     }

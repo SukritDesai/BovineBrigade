@@ -2,22 +2,20 @@ package com.git.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
 
 public class Character {
 
-    private final SpriteBatch batch;
+    final SpriteBatch batch;
     private final Texture character;
     private final TextureRegion[][] frames;
-    private Animation<TextureRegion> animation;
-    private float stateTime;
+    Animation<TextureRegion> animation;
+    float stateTime;
     private int row;
-    public float x = 100, y = 100;
+    public float x = 0, y = 0;
 
     public Character(String sheetName) {
         character = new Texture(sheetName);
@@ -31,7 +29,7 @@ public class Character {
     }
 
     public void update(float delta) {
-        float speed = 200f;
+        float speed = 300f;
 
         stateTime += delta;
 
@@ -66,7 +64,6 @@ public class Character {
 
     public void render() {
         stateTime += Gdx.graphics.getDeltaTime();
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         batch.draw(animation.getKeyFrame(stateTime, true), Math.round(x), Math.round(y));
         batch.end();
