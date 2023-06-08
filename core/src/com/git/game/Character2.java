@@ -17,8 +17,8 @@ import static com.git.game.FinalLevel.*;
 public class Character2 {
 
     public float velocityY = 0;
-    private static final float GRAVITY = -500f;
-    private static final float JUMP_VELOCITY = 500f;
+    private static final float GRAVITY = -1000f;
+    private static final float JUMP_VELOCITY = 700f;
     public boolean grounded = true;
     private final SpriteBatch batch;
     public static int health = 3;
@@ -66,7 +66,6 @@ public class Character2 {
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && grounded) {
             row = 0;
-            y+=1;
             velocityY = JUMP_VELOCITY;
             grounded = false;
         }
@@ -80,10 +79,9 @@ public class Character2 {
         y += velocityY * delta;
 
         checkCollision(x, y);
-        if (x < 0) {
-            x = 0;
+        if (x < -100) {
+            game.setScreen(new Popup(game, new MultipleChoice(game), "You were not fast enough!\nComplete the multiple choice question to not lose a heart!"));
         }
-
 
         TextureRegion[] walkFrames = frames[row];
         animation = new Animation<>(0.25f, walkFrames);
@@ -103,18 +101,30 @@ public class Character2 {
         character.dispose();
     }
     private void checkCollision(float x, float y) {
-        if (getTileId(x+15, y+32) != -1 || getTileId(x+51, y+32) != -1){
-            this.x = oldX;
+        if (getTileIdSpikes(x+18, y+32) != -1||getTileIdSpikes(x+40, y+32) != -1|| getTileIdSpikes(x+18, y+12) != -1||getTileIdSpikes(x+40, y+12) != -1){
+            game.setScreen(new Popup(game, new MultipleChoice(game), "You have hit a spike!\nComplete the multiple choice question to not lose a heart!"));
         }
-        if (getTileId(x+18, y+62) != -1 || getTileId(x+48, y+62) != -1){
-            velocityY = 0;
-        }
-        if (getTileId(x+18, y+12) == 40||getTileId(x+48, y+12) == 40){
+        if (getTileIdHole(x+18, y+32) != -1||getTileIdHole(x+40, y+32) != -1|| getTileIdHole(x+18, y+12) != -1||getTileIdHole(x+40, y+12) != -1){
             game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
         }
+        if (getTileIdExit(x+18, y+32) != -1||getTileIdExit(x+40, y+32) != -1|| getTileIdExit(x+18, y+12) != -1||getTileIdExit(x+40, y+12) != -1){
+            game.setScreen(new TransitionAnimation(game, new MainMenu(game), "Congratulations, you have Completed the game and have mastered Git!\nUse your good coding practices in you future projects and career!"));
+        }
+        if (getTileId(x+15, y+40) != -1 || getTileId(x+51, y+40) != -1){
+            this.x = oldX;
+        }
+        if (getTileId(x+18, y+40) != -1 || getTileId(x+48, y+40) != -1){
+            velocityY = 0;
+        }
+
         if (getTileId(x+18, y+12) != -1||getTileId(x+48, y+12) != -1) {
             this.y = oldY;
             grounded = true;
+        }
+        if (getTileId(x+18, y+40) == 40||getTileId(x+48, y+40) == 40){
+            System.out.println((x+18) + " "+ (y+12));
+            System.out.println("Hole");
+            game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
         }
     }
 
@@ -125,6 +135,36 @@ public class Character2 {
         TiledMapTileLayer.Cell cell = collisionLayer.getCell(tileX, tileY);
         if (cell != null && cell.getTile() != null) {
             return cell.getTile().getId()-1;
+        }
+        return -1;
+    }
+    private int getTileIdSpikes(float x, float y) {
+        int tileX = (int) ((x+cameraMovedCount) / spikeLayer.getTileWidth());
+        int tileY = (int) (y / spikeLayer.getTileHeight());
+
+        TiledMapTileLayer.Cell cell = spikeLayer.getCell(tileX, tileY);
+        if (cell != null && cell.getTile() != null) {
+            return cell.getTile().getId();
+        }
+        return -1;
+    }
+    private int getTileIdExit(float x, float y) {
+        int tileX = (int) ((x+cameraMovedCount) / exitLayer.getTileWidth());
+        int tileY = (int) (y / exitLayer.getTileHeight());
+
+        TiledMapTileLayer.Cell cell = exitLayer.getCell(tileX, tileY);
+        if (cell != null && cell.getTile() != null) {
+            return cell.getTile().getId();
+        }
+        return -1;
+    }
+    private int getTileIdHole(float x, float y) {
+        int tileX = (int) ((x+cameraMovedCount) / exitLayer.getTileWidth());
+        int tileY = (int) (y / exitLayer.getTileHeight());
+
+        TiledMapTileLayer.Cell cell = exitLayer.getCell(tileX, tileY);
+        if (cell != null && cell.getTile() != null) {
+            return cell.getTile().getId();
         }
         return -1;
     }

@@ -7,8 +7,8 @@
 
 /**
  * Todo:
- * - Add a way to win the game
- * - Change map to have spikes/collision with spikes
+ * - Add a way to win the game- Completed Kevin
+ * - Change map to have spikes/collision with spikes - Completed Kevin
  * - Comment code
  * - Possibly add an enemy character with collision
  * - Generate JavaDoc
@@ -39,6 +39,9 @@ public class FinalLevel implements Screen {
     private SpriteBatch spriteBatch = new SpriteBatch();
     private final Texture imageTexture = new Texture("Heart.png");
     public static TiledMapTileLayer collisionLayer = (TiledMapTileLayer) map.getLayers().get(0);
+    public static TiledMapTileLayer spikeLayer = (TiledMapTileLayer) map.getLayers().get("Spikes");
+    public static TiledMapTileLayer exitLayer = (TiledMapTileLayer) map.getLayers().get("Exit");
+    public static TiledMapTileLayer holeLayer = (TiledMapTileLayer) map.getLayers().get("Hole");
     public static Game game;
     private ShapeRenderer shapeRenderer;
     public static int cameraMovedCount = 0;
@@ -87,14 +90,11 @@ public class FinalLevel implements Screen {
 
         spriteBatch.begin();
         if (character.health==1) {
-            System.out.println("1 health");
             spriteBatch.draw(imageTexture, 0, 0);
         } else if (character.health==2) {
-            System.out.println("2 health");
             spriteBatch.draw(imageTexture, 0, 0);
             spriteBatch.draw(imageTexture, 50, 0);
         } else if (character.health==3) {
-            System.out.println("3 health");
             spriteBatch.draw(imageTexture, 0, 0);
             spriteBatch.draw(imageTexture, 50, 0);
             spriteBatch.draw(imageTexture, 100, 0);
