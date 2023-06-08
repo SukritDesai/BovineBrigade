@@ -86,7 +86,7 @@ public class MultipleChoice implements Screen {
                 else {
                     firstAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
-                    health--;
+                    Character2.health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);
@@ -113,7 +113,7 @@ public class MultipleChoice implements Screen {
                 else {
                     secondAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
-                    health--;
+                    Character2.health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);
@@ -140,7 +140,7 @@ public class MultipleChoice implements Screen {
                 else {
                     thirdAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
-                    health--;
+                    Character2.health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);
@@ -168,7 +168,7 @@ public class MultipleChoice implements Screen {
                 else {
                     fourthAnswer.setColor(Color.RED);
                     message = "\nYou are incorrect!"+ message;
-                    health--;
+                    Character2.health--;
                 }
                 firstAnswer.setTouchable(Touchable.disabled);
                 secondAnswer.setTouchable(Touchable.disabled);
@@ -200,8 +200,8 @@ public class MultipleChoice implements Screen {
             questionNum++;
             if (questionNum == answer1.length)
                 questionNum = 0;
-            if (health==0) {
-                health = 3;
+            if (Character2.health==0) {
+                Character2.health = 3;
                 game.setScreen(new Popup(game, new MainMenu(game), "You have lost all your health!\nYou have been sent back to the main menu\nto learn more about Git!"));
             } else {
                 game.setScreen(new FinalLevel(game));

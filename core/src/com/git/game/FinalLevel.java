@@ -29,10 +29,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
-import static com.git.game.Character2.health;
 
 public class FinalLevel implements Screen {
     static TiledMap map = new TmxMapLoader().load("GameMap.tmx");
@@ -89,15 +86,18 @@ public class FinalLevel implements Screen {
 
 
         spriteBatch.begin();
-        if (health==3) {
+        if (character.health==1) {
+            System.out.println("1 health");
+            spriteBatch.draw(imageTexture, 0, 0);
+        } else if (character.health==2) {
+            System.out.println("2 health");
+            spriteBatch.draw(imageTexture, 0, 0);
+            spriteBatch.draw(imageTexture, 50, 0);
+        } else if (character.health==3) {
+            System.out.println("3 health");
             spriteBatch.draw(imageTexture, 0, 0);
             spriteBatch.draw(imageTexture, 50, 0);
             spriteBatch.draw(imageTexture, 100, 0);
-        } else if (health==2) {
-            spriteBatch.draw(imageTexture, 0, 0);
-            spriteBatch.draw(imageTexture, 50, 0);
-        } else if (health==1) {
-            spriteBatch.draw(imageTexture, 0, 0);
         }
         spriteBatch.end();
 
