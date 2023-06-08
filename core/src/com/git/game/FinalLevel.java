@@ -4,6 +4,16 @@
  * Description: Class for the final level that runs the platformer game.
  * */
 
+
+/**
+ * Todo:
+ * - Add a way to win the game
+ * - Change map to have spikes/collision with spikes
+ * - Comment code
+ * - Possibly add an enemy character with collision
+ * - Generate JavaDoc
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Game;
