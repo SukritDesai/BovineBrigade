@@ -42,8 +42,9 @@ public class FinalLevel implements Screen {
     public static TiledMapTileLayer spikeLayer = (TiledMapTileLayer) map.getLayers().get("Spikes");
     public static TiledMapTileLayer exitLayer = (TiledMapTileLayer) map.getLayers().get("Exit");
     public static TiledMapTileLayer holeLayer = (TiledMapTileLayer) map.getLayers().get("Hole");
+
+    public static TiledMapTileLayer ghostLayer = (TiledMapTileLayer) map.getLayers().get("Ghosts");
     public static Game game;
-    private ShapeRenderer shapeRenderer;
     public static int cameraMovedCount = 0;
 
 
@@ -55,7 +56,6 @@ public class FinalLevel implements Screen {
         float screenHeight = Gdx.graphics.getHeight();
         camera.position.set(screenWidth / 2, screenHeight / 2, 0);
         camera.update();
-        shapeRenderer = new ShapeRenderer();
         character = new Character2("character.png");
         this.game = game;
     }

@@ -107,6 +107,11 @@ public class Character2 {
         if (getTileIdHole(x+18, y+32) != -1||getTileIdHole(x+40, y+32) != -1|| getTileIdHole(x+18, y+12) != -1||getTileIdHole(x+40, y+12) != -1){
             game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
         }
+
+        if (getTileIdGhost(x+18, y+32) != -1||getTileIdGhost(x+40, y+32) != -1|| getTileIdGhost(x+18, y+12) != -1||getTileIdGhost(x+40, y+12) != -1){
+            game.setScreen(new Popup(game, new MultipleChoice(game), "A ghost has caught you!\nComplete the multiple choice question to not lose a heart!"));
+        }
+
         if (getTileIdExit(x+18, y+32) != -1||getTileIdExit(x+40, y+32) != -1|| getTileIdExit(x+18, y+12) != -1||getTileIdExit(x+40, y+12) != -1){
             game.setScreen(new TransitionAnimation(game, new MainMenu(game), "Congratulations, you have Completed the game and have mastered Git!\nUse your good coding practices in you future projects and career!"));
         }
@@ -159,14 +164,26 @@ public class Character2 {
         return -1;
     }
     private int getTileIdHole(float x, float y) {
-        int tileX = (int) ((x+cameraMovedCount) / exitLayer.getTileWidth());
-        int tileY = (int) (y / exitLayer.getTileHeight());
+        int tileX = (int) ((x+cameraMovedCount) / holeLayer.getTileWidth());
+        int tileY = (int) (y / holeLayer.getTileHeight());
 
-        TiledMapTileLayer.Cell cell = exitLayer.getCell(tileX, tileY);
+        TiledMapTileLayer.Cell cell = holeLayer.getCell(tileX, tileY);
         if (cell != null && cell.getTile() != null) {
             return cell.getTile().getId();
         }
         return -1;
     }
+
+    private int getTileIdGhost(float x, float y) {
+        int tileX = (int) ((x+cameraMovedCount) / ghostLayer.getTileWidth());
+        int tileY = (int) (y / ghostLayer.getTileHeight());
+
+        TiledMapTileLayer.Cell cell = ghostLayer.getCell(tileX, tileY);
+        if (cell != null && cell.getTile() != null) {
+            return cell.getTile().getId();
+        }
+        return -1;
+    }
+
 
 }
