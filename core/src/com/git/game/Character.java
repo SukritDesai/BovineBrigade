@@ -1,3 +1,10 @@
+/**
+ * Represents a character in the game.
+ * The character is controlled by user input and rendered on the screen.
+ *
+ * @author Sukrit Desai
+ */
+
 package com.git.game;
 
 import com.badlogic.gdx.Gdx;
@@ -12,19 +19,23 @@ import static com.git.game.Maze.characterX;
 import static com.git.game.Maze.characterY;
 
 public class Character {
+    private final SpriteBatch batch; // Used for rendering sprites
+    private final Texture character; // The texture of the character
+    private final TextureRegion[][] frames; // A 2D array of texture regions for character animation frames
+    private Animation<TextureRegion> animation; // The animation for the character
+    private float stateTime; // The time elapsed since the start of the animation
+    private int row; // The current row index in the frames array
+    public float x = 100, y = 100; // The position of the character
 
-    private final SpriteBatch batch;
-    private final Texture character;
-    private final TextureRegion[][] frames;
-    private Animation<TextureRegion> animation;
-    private float stateTime;
-    private int row;
-    public float x = 100, y = 100;
-
+    /**
+     * Constructs a new Character object.
+     *
+     * @param sheetName the file path of the character sprite sheet
+     */
     public Character(String sheetName) {
         character = new Texture(sheetName);
-        int FRAME_COLS = 9;
-        int FRAME_ROWS = 4;
+        int FRAME_COLS = 9; // The number of columns in the sprite sheet
+        int FRAME_ROWS = 4; // The number of rows in the sprite sheet
         frames = TextureRegion.split(character, character.getWidth() / FRAME_COLS, character.getHeight() / FRAME_ROWS);
         stateTime = 0f;
         batch = new SpriteBatch();
@@ -32,6 +43,11 @@ public class Character {
         stateTime = 0f;
     }
 
+    /**
+     * Updates the character's state based on the elapsed time.
+     *
+     * @param delta the time elapsed since the last update
+     */
     public void update(float delta) {
         stateTime += delta;
 
@@ -56,6 +72,10 @@ public class Character {
         animation = new Animation<>(0.25f, walkFrames);
     }
 
+    /**
+     * Renders the character on the screen.
+     * Clears the screen and draws the character sprite using the animation.
+     */
     public void render() {
         stateTime += Gdx.graphics.getDeltaTime();
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -64,6 +84,10 @@ public class Character {
         batch.end();
     }
 
+    /**
+     * Disposes of the resources used by the character.
+     * Disposes the sprite batch and character texture.
+     */
     public void dispose() {
         batch.dispose();
         character.dispose();
