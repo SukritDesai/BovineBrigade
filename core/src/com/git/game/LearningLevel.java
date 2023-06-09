@@ -1,7 +1,7 @@
 /**
- * Name: Kevin Kolyakov, Sukrit Desai
+ * @author Kevin Kolyakov, Sukrit Desai
  * Teacher: Ms. Krasteva
- * The ComputerScreen class represents a screen that displays a computer interface.
+ * The LearningLevel class that implements the entire Learning Level
  */
 
 package com.git.game;
@@ -28,23 +28,33 @@ import java.util.Arrays;
 import static com.git.game.GitOdyssey.gameSkin;
 
 public class LearningLevel implements Screen {
-    private static final int SCREEN_WIDTH = 800;
-    private static final int SCREEN_HEIGHT = 480;
-    private String errorMessage = "Make sure to read the instructions of the level\ntype in git clone https://odyssey.git and\npress enter to continue.";
+    private static final int SCREEN_WIDTH = 800; // Width of the screen
+    private static final int SCREEN_HEIGHT = 480; // Height of the screen
+    private String errorMessage = "Make sure to read the instructions of the level\ntype in git clone https://odyssey.git and\npress enter to continue."; // Error message to be displayed
 
-    private Stage stage;
-    private Viewport viewport;
-    private SpriteBatch spriteBatch;
-    private ShapeRenderer shapeRenderer;
-    private TextField consoleTextField;
-    Label output, firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel, instructionsLabel;
-    Rectangle first, second, third, fourth, fifth, connector1, connector2, connector3, connector4, connector5, outline;
-    private int counter = 1;
-    Game game;
+    private Stage stage; // The stage that holds the buttons
+    private Viewport viewport; // The viewport that holds the stage
+    private SpriteBatch spriteBatch; // The spritebatch that holds the textures
+    private ShapeRenderer shapeRenderer; // The ShapeRenderer that draws the shapes
+    private TextField consoleTextField; // The textfield that holds the user input
+    Label output, firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel, instructionsLabel; // The labels that hold the output and the instructions
+    Rectangle first, second, third, fourth, fifth, connector1, connector2, connector3, connector4, connector5, outline; // The rectangles that hold the output and the instructions
+    private int counter = 1; // The counter that keeps track of the number of times the user has tried to input the correct command
+    Game game; // The game that holds the screen
+
+    /**
+     * The constructor for the LearningLevel class
+     * @param aGame The game that holds the screen (used to switch screens)
+     */
     public LearningLevel(Game aGame){
         game = aGame;
     }
 
+
+    /**
+     * The method that shows the screen for the first time it is rendered.
+     * It sets up all the variables and objects that are needed for the screen.
+     */
     @Override
     public void show() {
         OrthographicCamera camera = new OrthographicCamera();
@@ -141,6 +151,12 @@ public class LearningLevel implements Screen {
         stage.addActor(output);
     }
 
+
+    /**
+     * Renders the screen
+     * Also checks for all the user input possibilities, and acts on them accordingly.
+     * @param delta The time in seconds since the last render
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
@@ -257,11 +273,23 @@ public class LearningLevel implements Screen {
     }
 
 
+    /**
+     * This method is called when the screen is resized.
+     * It adjusts the viewport accordingly to the new screen size.
+     * @param width the new width of the screen
+     *              (in pixels)
+     * @param height the new height of the screen
+     *               (in pixels)
+     */
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);
     }
 
+    /**
+     * The next three methods are used for other specific cases, but are not implemented for our program.
+     * They are only here because this class must implement all of the methods of the Screen interface.
+     */
     @Override
     public void pause() {}
 
@@ -271,6 +299,10 @@ public class LearningLevel implements Screen {
     @Override
     public void hide() {}
 
+
+    /**
+     * This method is called when the screen is disposed.
+     */
     @Override
     public void dispose() {
         spriteBatch.dispose();

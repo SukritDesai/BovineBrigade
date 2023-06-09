@@ -11,15 +11,25 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * The maze game screen. The player must navigate through the maze to reach the end.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with Krasteva, V.
+ *
+ * @author Kevin, Sukrit
+ * @version 05.23.23
+ */
 public class Maze implements Screen {
 
     private static final int MAZE_CELL_SIZE = Gdx.graphics.getWidth()/20; // Size of each maze cell in pixels
     private static final float CHARACTER_SPEED = 100f; // Character movement speed
 
-    private final Game game;
-    private OrthographicCamera camera;
-    private ShapeRenderer shapeRenderer;
+    private final Game game; // The game object used to switch between screens
+    private OrthographicCamera camera; // The camera object to render everything properly
+    private ShapeRenderer shapeRenderer; // The shape renderer object to draw shapes
 
+    // the maze layout
     private int[][] maze = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -34,23 +44,32 @@ public class Maze implements Screen {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
     };
 
-    private int mazeWidth;
-    private int mazeHeight;
+    private int mazeWidth; // the width of the maze in cells
+    private int mazeHeight; // the height of the maze in cells
 
-    private Character character;
-    public static float characterX = MAZE_CELL_SIZE;
-    public static float characterY = MAZE_CELL_SIZE;
-    private Vector2 characterVelocity;
-    private final int numSnakes;
+    private Character character;// the character object used to draw the character
+    public static float characterX = MAZE_CELL_SIZE; // the x position of the character
+    public static float characterY = MAZE_CELL_SIZE; // the y position of the character
+    private Vector2 characterVelocity; // the velocity of the character used to set new character positions
+    private final int numSnakes; // the number of snakes in the maze
 
+
+    /**
+     * The constructor for the maze screen.
+     * @param game The game object used to switch between screens
+     * @param NumSnakes The number of snakes in the maze
+     */
     public Maze(Game game, int NumSnakes) {
         this.game = game;
         numSnakes = NumSnakes;
     }
 
+    /**
+     * The method that is called when the screen is first opened.
+     */
     @Override
     public void show() {
-        if (numSnakes==3){
+        if (numSnakes==3){ // layout for if there's 3 snakes
             maze = new int[][]{
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                     {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -64,7 +83,7 @@ public class Maze implements Screen {
                     {1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1},
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
             };
-        } else if (numSnakes == 2){
+        } else if (numSnakes == 2){ // changed layout for 2 snakes
             maze = new int[][]{
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                     {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -78,7 +97,7 @@ public class Maze implements Screen {
                     {1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1},
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
             };
-        } else if (numSnakes == 1) {
+        } else if (numSnakes == 1) { // changed layout for 1 snake
             maze = new int[][]{
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                     {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -92,7 +111,7 @@ public class Maze implements Screen {
                     {1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1},
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
             };
-        } else if (numSnakes == 0) {
+        } else if (numSnakes == 0) { // changed layout for no snakes
             maze = new int[][]{
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                     {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -107,6 +126,8 @@ public class Maze implements Screen {
                     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
             };
         }
+
+        // initializes basic variables
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
@@ -120,6 +141,9 @@ public class Maze implements Screen {
         characterVelocity = new Vector2();
     }
 
+    /**
+     * Renders the maze and the character, and also called the handleInput() function.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -162,9 +186,11 @@ public class Maze implements Screen {
         shapeRenderer.end();
     }
 
+    /**
+     * Handles user input by checking for buttons pressed and acts accordingly.
+     */
     private void handleInput() {
         characterVelocity.set(0, 0);
-
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             characterVelocity.x = -CHARACTER_SPEED;
         } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
@@ -178,6 +204,9 @@ public class Maze implements Screen {
         }
     }
 
+    /**
+     * Updates the character's position and checks for collision with maze walls.
+     */
     private void updateCharacter(float delta) {
         float oldX = character.x;
         float oldY = character.y;
@@ -236,6 +265,9 @@ public class Maze implements Screen {
     public void hide() {
     }
 
+    /**
+     * Disposes of the shapeRenderer.
+     */
     @Override
     public void dispose() {
         shapeRenderer.dispose();
