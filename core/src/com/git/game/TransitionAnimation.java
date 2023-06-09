@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.TimeUtils;
  *
  * @author Kevin Kolyakov
  * @version 05.29.23
+ * Time Spent: 1 hour
  */
 public class TransitionAnimation implements Screen {
 

@@ -27,6 +27,7 @@ import static com.git.game.GitOdyssey.gameSkin;
  *
  * @author Kevin Kolyakov
  * @version 06.05.23
+ * Time Spent: 2 hours
  */
 public class Snake1 implements Screen {
 

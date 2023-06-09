@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
  *
  * @author Kevin Kolyakov
  * @version 06.09.23
+ * Time Spent: 3 hours
  */
 public class MultipleChoice implements Screen {
 

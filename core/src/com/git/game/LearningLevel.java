@@ -29,6 +29,7 @@ import static com.git.game.GitOdyssey.gameSkin;
  *
  * @author Kevin, Sukrit
  * @version 05.23.23
+ * Time Spent: 10 hours
  */
 public class LearningLevel implements Screen {
     private static final int SCREEN_WIDTH = 800; // Width of the screen

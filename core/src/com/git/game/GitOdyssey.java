@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
  *
  * @author Sukrit Desai
  * @version 05.23.23
+ * Time Spent: 10 minutes
  */
 public class GitOdyssey extends Game implements ApplicationListener {
 

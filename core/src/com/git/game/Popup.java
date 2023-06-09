@@ -19,6 +19,7 @@ import static com.git.game.GitOdyssey.gameSkin;
  *
  * @author Kevin Kolyakov
  * @version 05.29.23
+ * Time Spent: 1 hour
  */
 public class Popup implements Screen {
 

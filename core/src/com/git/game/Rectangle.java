@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  *
  * @author Kevin Kolyakov
  * @version 05.29.23
+ * Time Spent: 2 hours
  */
 public class Rectangle extends Actor {
 

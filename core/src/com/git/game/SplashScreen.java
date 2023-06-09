@@ -19,6 +19,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
  *
  * @author Sukrit Desai
  * @version 05.23.23
+ * Time Spent: 1 hour
  */
 public class SplashScreen implements Screen {
 

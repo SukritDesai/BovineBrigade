@@ -19,6 +19,7 @@ import com.badlogic.gdx.math.Vector2;
  *
  * @author Kevin Kolyakov, Sukrit Desai
  * @version 05.23.23
+ * Time Spent: 5 hours
  */
 public class Maze implements Screen {
 

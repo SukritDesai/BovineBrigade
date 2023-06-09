@@ -20,6 +20,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
  *
  * @author Sukrit Desai, Kevin Kolyakov
  * @version 06.09.23
+ * Time Spent: 3 hours
  */
 public class FinalLevel implements Screen {
     /** The map that is rendered */

@@ -20,6 +20,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
  *
  * @author Sukrit Desai
  * @version 05.23.23
+ * Time Spent: 2 hours
  */
 public class MainMenu implements Screen {
 

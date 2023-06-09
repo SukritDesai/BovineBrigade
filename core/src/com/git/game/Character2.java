@@ -19,6 +19,7 @@ import static com.git.game.FinalLevel.*;
  *
  * @author Kevin Kolyakov
  * @version 6.9.23
+ * Time Spent: 5 hours
  */
 
 public class Character2 {
