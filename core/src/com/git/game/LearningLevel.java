@@ -1,9 +1,3 @@
-/**
- * @author Kevin Kolyakov, Sukrit Desai
- * Teacher: Ms. Krasteva
- * The LearningLevel class that implements the entire Learning Level
- */
-
 package com.git.game;
 
 import com.badlogic.gdx.Game;
@@ -27,6 +21,15 @@ import java.util.Arrays;
 
 import static com.git.game.GitOdyssey.gameSkin;
 
+/**
+ * The LearningLevel class that implements the entire Learning Level
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with Krasteva, V.
+ *
+ * @author Kevin, Sukrit
+ * @version 05.23.23
+ */
 public class LearningLevel implements Screen {
     private static final int SCREEN_WIDTH = 800; // Width of the screen
     private static final int SCREEN_HEIGHT = 480; // Height of the screen
