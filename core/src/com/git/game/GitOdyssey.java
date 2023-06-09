@@ -2,7 +2,6 @@ package com.git.game;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import sun.applet.Main;
 
 /**
  * The main class for the game. Creates the game and sets the screen to the splashscreen.
