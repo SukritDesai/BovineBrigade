@@ -20,7 +20,13 @@ import static com.git.game.Maze.characterY;
  *
  * @author Sukrit Desai
  * @version 05.29.23
- * Time Spent: 3 hour
+ * Time Spent: 2 hour
+ *
+ * Modifications History:
+ * @author Sukrit Desai
+ * @version 6.9.23
+ * Time Spent: 1 hours
+ * Modifications: Added sprite sheet animation
  */
 public class Character {
     private final SpriteBatch batch; // Used for rendering sprites

@@ -19,8 +19,14 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
  * ICS4U0 with Krasteva, V.
  *
  * @author Sukrit Desai, Kevin Kolyakov
- * @version 06.09.23
- * Time Spent: 3 hours
+ * @version 06.04.23
+ * Time Spent: 2 hours
+ *
+ * Modifications History:
+ * @author Kevin Kolyakov
+ * @version 6.9.23
+ * Time Spent: 1 hours
+ * Modifications: Modified messages and add comments
  */
 public class FinalLevel implements Screen {
     /** The map that is rendered */

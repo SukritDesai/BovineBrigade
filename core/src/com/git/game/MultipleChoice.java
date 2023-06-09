@@ -22,8 +22,14 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
  * ICS4U0 with Krasteva, V.
  *
  * @author Kevin Kolyakov
- * @version 06.09.23
+ * @version 06.07.23
  * Time Spent: 3 hours
+ *
+ * Modifications History:
+ * @author Kevin Kolyakov
+ * @version 6.9.23
+ * Time Spent: 30 minutes
+ * Modifications: Modified messages
  */
 public class MultipleChoice implements Screen {
 

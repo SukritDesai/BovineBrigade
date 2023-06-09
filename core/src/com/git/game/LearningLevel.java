@@ -27,7 +27,7 @@ import static com.git.game.GitOdyssey.gameSkin;
  * <h2>Course Info:</h2>
  * ICS4U0 with Krasteva, V.
  *
- * @author Kevin, Sukrit
+ * @author Kevin Kolyakov, Sukrit Desai
  * @version 05.23.23
  * Time Spent: 10 hours
  */
