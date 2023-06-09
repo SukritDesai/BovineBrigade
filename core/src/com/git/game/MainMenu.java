@@ -21,7 +21,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
  * @author Sukrit Desai
  * @version 05.23.23
  * Time Spent: 2 hours
- *
  * Modifications History:
  * @author Kevin Kolyakov
  * @version 6.9.23
