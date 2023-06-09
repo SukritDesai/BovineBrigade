@@ -1,0 +1,39 @@
+Game Help - Git Odyssey
+
+Created By: Kevin Kolyakov & Sukrit Desai
+Course Info: ICS4U0 with V. Krasteva
+
+Welcome to the Git Odyssey! Below is a guide to help you navigate through the game and provide assistance whenever needed.
+
+Main Menu:
+- Introduction: Starts the game with the tutorial level, where you will learn about git commands.
+- Play: Skips the tutorial level and takes you straight to the maze level.
+- Exit: Exits the game.
+
+Tutorial Level:
+In this level, you will learn and practice various git commands. Follow the instructions below:
+- The game will present you with a premade console.
+- Read the instructions provided and type the corresponding git command into the console by first clicking in the console and then typing the command specified.
+- If you need extra practice with Git commands, you can go to this tutorial (Created by Atlassian): https://www.atlassian.com/git/tutorials
+- Once you've entered the correct command, the tutorial will progress to the next step.
+- Complete all the tutorial steps to move on to the next level.
+
+Maze Level:
+In the maze level, you will navigate through a maze and encounter snakes. Each encounter with a snake will require you to complete a challenge before proceeding. Use the arrow keys to move through the maze. Follow these guidelines:
+- Use the arrow keys to navigate the maze and find the exit.
+- When you encounter a snake, a challenge will appear.
+- Solve the challenge to continue through the maze which will be similar to the tutorial level's questions.
+- Reach the end of the maze to proceed to the next level.
+
+Platformer Level:
+In this level, you will control a character in a platformer-style game. The goal is to dodge enemies and reach the exit. Here's what you need to do:
+- Use the arrow keys to move the character and press the up arrow key to jump.
+- Dodge enemies by maneuvering your character around them.
+- Reach the exit to complete the game.
+- If your character gets hit by an enemy or spikes, you will be asked to answer a multiple choice question and if you answer incorrectly, you will lose a life.
+- You have three lives in total. If you lose all three, you will be sent back to the main menu.
+
+Multiple Choice Questions:
+- When your character gets hit by an enemy or spikes in the platformer level, you will be presented with a multiple-choice question about git. Use your mouse to select the correct answer.
+
+Good luck and enjoy playing Git Odyssey!
