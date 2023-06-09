@@ -64,7 +64,7 @@ public class MainMenu implements Screen {
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 // When the button is pressed, go to the learning level
-                game.setScreen(new TransitionAnimation(game, new LearningLevel(game), "Embark on a thrilling journey to master Git!\nFollow instructions, complete tasks, and unlock\nits secrets in this immersive game.\nConquer challenges, learn collaboration, and become a Git expert.\nGet ready for an epic quest!"));
+                game.setScreen(new TransitionAnimation(game, new Popup(game, new LearningLevel(game), "Hello young developer! You must be thinking, why should I learn about git, how will this ever help me?\nLearning Git is essential for your coding journey. It's like a superpower that lets you track changes, collaborate with others, and manage projects effectively.\nBy gamifying Git, you'll have fun while mastering this valuable skill. It boosts teamwork, safeguards your code, and enhances your job prospects.\nEmbrace the opportunity, level up your coding skills, and start your Git adventure today!\n"), "Embark on a thrilling journey to master Git!\nFollow instructions, complete tasks, and unlock\nits secrets in this immersive game.\nConquer challenges, learn collaboration, and become a Git expert.\nGet ready for an epic quest!"));
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
