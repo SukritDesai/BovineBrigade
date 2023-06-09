@@ -22,7 +22,7 @@ import java.util.Arrays;
 import static com.git.game.GitOdyssey.gameSkin;
 
 /**
- * The LearningLevel class that implements the entire Learning Level
+ * The LearningLevel class that implements the level where the user will be taught about Git.
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with Krasteva, V.
@@ -179,6 +179,8 @@ public class LearningLevel implements Screen {
             } else if (consoleTextField.getText().split("\n").length > 0) {
                 String[] consoleText = consoleTextField.getText().split("\n");
                 String trimmed = consoleText[consoleText.length - 1].trim();
+
+                //If the user types in the right command in the console, the next step is shown
                 if (counter == 1 && trimmed.equals("git clone https://odyssey.git")) {
                     errorMessage = "Use the command \"git add README.md\"\nto add the file to commit.";
                     instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\nThis will add the file to commit\nand your online project.");

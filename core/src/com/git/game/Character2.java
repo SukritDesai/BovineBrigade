@@ -201,17 +201,17 @@ public class Character2 {
             grounded = true;
         }
 
-        //Checks for if the character is colliding with a hole tile
+        //Checks for if the character is colliding with a hole tile type
         if (getTileId(x+18, y+40) == 40||getTileId(x+48, y+40) == 40){
             game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
         }
     }
 
     /**
-     * Gets the tile id of the tile at the given x and y coordinates
+     * Gets the tile id at the given x and y coordinates
      * @param x The x coordinate of the tile
      * @param y The y coordinate of the tile
-     * @return The tile id of the tile at the given x and y coordinates
+     * @return The tile id of the tile at the given x and y coordinates or -1 if no tiles are found
      */
     private int getTileId(float x, float y) {
         int tileX = (int) ((x+cameraMovedCount) / FinalLevel.collisionLayer.getTileWidth());
@@ -226,10 +226,10 @@ public class Character2 {
     }
 
     /**
-     * Gets the tile of the spike layer at the given x and y coordinates
+     * Gets the tile id of the spike layer at the given x and y coordinates
      * @param x The x coordinate of the tile
      * @param y The y coordinate of the tile
-     * @return The tile id of the tile at the given x and y coordinates
+     * @return The tile id of the tile at the given x and y coordinates or -1 if no tiles are found
      */
     private int getTileIdSpikes(float x, float y) {
         int tileX = (int) ((x+cameraMovedCount) / spikeLayer.getTileWidth());
@@ -244,10 +244,10 @@ public class Character2 {
     }
 
     /**
-     * Gets the tile of the exit layer at the given x and y coordinates
+     * Gets the tile id of the exit layer at the given x and y coordinates
      * @param x The x coordinate of the tile
      * @param y The y coordinate of the tile
-     * @return The tile id of the tile at the given x and y coordinates
+     * @return The tile id of the tile at the given x and y coordinates or -1 if no tiles are found
      */
     private int getTileIdExit(float x, float y) {
         int tileX = (int) ((x+cameraMovedCount) / exitLayer.getTileWidth());
@@ -262,10 +262,10 @@ public class Character2 {
     }
 
     /**
-     * Gets the tile of the ghost layer at the given x and y coordinates
+     * Gets the tile id of the ghost layer at the given x and y coordinates
      * @param x The x coordinate of the tile
      * @param y The y coordinate of the tile
-     * @return The tile id of the tile at the given x and y coordinates
+     * @return The tile id of the tile at the given x and y coordinates or -1 if no tiles are found
      */
     private int getTileIdGhost(float x, float y) {
         int tileX = (int) ((x+cameraMovedCount) / ghostLayer.getTileWidth());

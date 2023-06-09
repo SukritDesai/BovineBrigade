@@ -20,7 +20,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import static com.git.game.GitOdyssey.gameSkin;
 
 /**
- * This is the first challenge in the first maze
+ * This is the first challenge in the maze for the first snake
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva

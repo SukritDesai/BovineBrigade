@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 
 /**
- * A rectangle that can be drawn on the screen.
+ * A class to draw a rectangle that can be drawn on the screen based off of the x and y coordinates
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva

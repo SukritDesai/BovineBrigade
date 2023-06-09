@@ -22,7 +22,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
  * ICS4U0 with Krasteva, V.
  *
  * @author Kevin Kolyakov
- * @version 6.9.23
+ * @version 06.09.23
  */
 public class MultipleChoice implements Screen {
 
@@ -67,7 +67,7 @@ public class MultipleChoice implements Screen {
         //Creates the stage
         stage = new Stage(new ScreenViewport());
 
-        //Creates the question label
+        //Creates the question text
         final String[] questionText = {
                 "What does the command \"git add\" do?",
                 "How do you create a new branch in Git?",
@@ -161,7 +161,6 @@ public class MultipleChoice implements Screen {
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-
                 return true;
             }
         });
@@ -230,7 +229,7 @@ public class MultipleChoice implements Screen {
     }
 
     /**
-     * Checks if user answered a question and updates health
+     * Checks if user answered a question and updates health value
      * @param delta The time in seconds since the last render.
      */
     @Override

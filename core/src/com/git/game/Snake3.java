@@ -20,7 +20,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import static com.git.game.GitOdyssey.gameSkin;
 
 /**
- * This is the third challenge in the maze game.
+ * This is the third challenge in the maze game for the third snake
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva

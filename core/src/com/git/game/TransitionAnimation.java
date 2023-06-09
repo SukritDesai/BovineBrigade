@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.TimeUtils;
 
 /**
- * A screen that displays a transition animation.
+ * A screen that displays a transition animation between two screens.
  *
  * <h2>Course info:</h2>
  * ICS4U0 with V. Krasteva

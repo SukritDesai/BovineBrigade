@@ -19,7 +19,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
  * ICS4U0 with Krasteva, V.
  *
  * @author Sukrit Desai, Kevin Kolyakov
- * @version 19.06.08
+ * @version 06.09.23
  */
 public class FinalLevel implements Screen {
     /** The map that is rendered */
@@ -84,7 +84,7 @@ public class FinalLevel implements Screen {
     }
 
     /**
-     * Updates the camera position and moves the character based off of the camera
+     * Updates the camera position and moves the character to the left
      */
     private void updateCamera() {
         //moves the camera to the right and character to the left to create side-scrolling effect
@@ -100,7 +100,7 @@ public class FinalLevel implements Screen {
     public void show() {}
 
     /**
-     * Renders the game and updates the camera position. Also change the health bar based off of the character's health.
+     * Renders the game and updates the camera position. Update the health bar based on the character's health value.
      * @param delta The time in seconds since the last render.
      */
     @Override
@@ -134,7 +134,7 @@ public class FinalLevel implements Screen {
         }
         spriteBatch.end();
 
-        //checks if the character has fallen
+        //checks if the character has fallen and displays a message
         if(character.y<100){
             game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen, you must complete this question to not lose health\nIf you lose all 3 health you will be sent back to the main menu"));
         }

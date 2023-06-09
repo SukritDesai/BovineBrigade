@@ -20,7 +20,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import static com.git.game.GitOdyssey.gameSkin;
 
 /**
- * This class is the second challenge of the maze level
+ * This class is the second challenge of the maze level for the second snake
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva

@@ -17,7 +17,7 @@ import com.badlogic.gdx.math.Vector2;
  * <h2>Course Info:</h2>
  * ICS4U0 with Krasteva, V.
  *
- * @author Kevin, Sukrit
+ * @author Kevin Kolyakov, Sukrit Desai
  * @version 05.23.23
  */
 public class Maze implements Screen {
@@ -29,7 +29,7 @@ public class Maze implements Screen {
     private OrthographicCamera camera; // The camera object to render everything properly
     private ShapeRenderer shapeRenderer; // The shape renderer object to draw shapes
 
-    // the maze layout
+    // definition of the maze layout
     private int[][] maze = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -65,7 +65,7 @@ public class Maze implements Screen {
     }
 
     /**
-     * The method that is called when the screen is first opened.
+     * The method that is called when the screen is first loaded.
      */
     @Override
     public void show() {
@@ -181,13 +181,11 @@ public class Maze implements Screen {
         character.render();
         // Render the character
         shapeRenderer.setColor(Color.GOLD);
-        // shapeRenderer.rect(character.x, character.y, character.width, character.height);
-
         shapeRenderer.end();
     }
 
     /**
-     * Handles user input by checking for buttons pressed and acts accordingly.
+     * Handles user input by checking for keys pressed and moves the character accordingly on the screen.
      */
     private void handleInput() {
         characterVelocity.set(0, 0);
@@ -205,7 +203,7 @@ public class Maze implements Screen {
     }
 
     /**
-     * Updates the character's position and checks for collision with maze walls.
+     * Updates the character's position and checks for collision with maze walls tiles.
      */
     private void updateCharacter(float delta) {
         float oldX = character.x;
@@ -233,6 +231,7 @@ public class Maze implements Screen {
                     }
                 } else if (maze[row][col] == 2) {
 
+                    // Collision with snake will trigger a popup screen
                     if (numSnakes == 3 && characterRect.overlaps(wallRect)){
                         game.setScreen(new Popup(game, new Snake1(game), "You have encountered a snake!\nComplete the snake's challenge to continue."));
                     } else if (numSnakes == 2 && characterRect.overlaps(wallRect)){
@@ -240,7 +239,7 @@ public class Maze implements Screen {
                     } else if (numSnakes == 1 && characterRect.overlaps(wallRect)){
                         game.setScreen(new Popup(game, new Snake3(game), "You have encountered a snake!\nComplete the snake's challenge to continue."));
                     }
-                } else if (maze[row][col] == 3 && characterRect.overlaps(wallRect)) {
+                } else if (maze[row][col] == 3 && characterRect.overlaps(wallRect)) {// Collision with the end of the maze will trigger a popup screen to next screen
                     game.setScreen(new TransitionAnimation(game, new FinalLevel(game), "You have Completed the maze!\nContinue to your final challenge."));
                 }
             }
