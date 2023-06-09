@@ -183,7 +183,7 @@ public class LearningLevel implements Screen {
                 //If the user types in the right command in the console, the next step is shown
                 if (counter == 1 && trimmed.equals("git clone https://odyssey.git")) {
                     errorMessage = "Use the command \"git add README.md\"\nto add the file to commit.";
-                    instructionsLabel.setText("Instructions:\nType in \"git add README.md\" in the command line\nThis will add the file to commit\nand your online project.");
+                    instructionsLabel.setText("Instructions:\nThe \"git add\" command stages changes,\npreparing them to be committed in Git repository.\nType in \"git add README.md\" in the command line\nThis will add the file to commit\nand your online project.");
                     first.setTransparency(1f);
                     firstLabel.setText("9e78i");
                     output.setColor(Color.GREEN);
@@ -191,19 +191,19 @@ public class LearningLevel implements Screen {
                     counter++;
                 } else if (counter == 2 && trimmed.equals("git add README.md")) {
                     errorMessage = "Use the command \"git commit -m \"message\" \"\nto commit the file.";
-                    instructionsLabel.setText("Instructions:\nType in \"git commit -m \"message\" \" in the \ncommand line. This will commit the files to your\nlocal repository and the project.");
+                    instructionsLabel.setText("Instructions:\nThe \"git commit\" command records staged changes,\ncreating a new commit in the repository's history.\nType in \"git commit -m \"message\" \" in the \ncommand line. This will commit the files to your\nlocal repository and the project.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                     counter++;
                 } else if (counter == 3 && trimmed.equals("git commit -m \"message\"")) {
                     errorMessage = "Use the command \"git push\" to\nadd the files to the online repository.";
-                    instructionsLabel.setText("Instructions:\nType in \"git push\" in the command line\nThis will add the files to the commit(new update)\nof the project.");
+                    instructionsLabel.setText("Instructions:\nThe \"git push\" command uploads\nlocal branch commits to a remote repository in Git.\nType in \"git push\" in the command line\nThis will add the files to the commit(new update)\nof the project.");
                     output.setColor(Color.GREEN);
                     output.setText("Correct!");
                     counter++;
                 } else if (counter == 4 && trimmed.equals("git push")) {
                     errorMessage = "Use the command \"git branch \"dev\" \"\nto create a branch.";
-                    instructionsLabel.setText("Instructions:\nType in \"git branch \"dev\" \" in the command line\nThis will create a branch of the repository\nwhere you can make changes to\na different version than the master.");
+                    instructionsLabel.setText("Instructions:\nThe \"git branch\" command allows you to\nview, create, or delete branches in Git.\nType in \"git branch \"dev\" \" in the command line\nThis will create a branch of the repository\nwhere you can make changes to\na different version than the master.");
                     output.setColor(Color.GREEN);
                     output.setText("Well Done!");
                     second.setTransparency(1f);
@@ -212,7 +212,7 @@ public class LearningLevel implements Screen {
                     counter++;
                 } else if (counter == 5 && trimmed.equals("git branch \"dev\"")) {
                     errorMessage = "Use the command \"git checkout dev\" to\nswitch to the new branch.";
-                    instructionsLabel.setText("Instructions:\nType in \"git checkout dev\" in the command line\n This will switch the branch you are editing.");
+                    instructionsLabel.setText("Instructions:\nThe \"git checkout\" command allows you to switch\nbetween branches or restore files\nfrom a specific commit in Git.\nType in \"git checkout dev\" in the command line\nThis will switch the branch you are editing.");
                     third.setTransparency(1f);
                     thirdLabel.setText("e3475");
                     connector3.setTransparency(1f);
@@ -239,7 +239,7 @@ public class LearningLevel implements Screen {
                     output.setText("Well Done!");
                 } else if (counter == 9 && trimmed.equals("git push")){
                     errorMessage = "Use the command \"git merge dev master\"\nto merge the two branches.";
-                    instructionsLabel.setText("Instructions:\nType in \"git merge dev master\" in the command line\nThis will merge the two branches\nto the master branch and will\nbring the files from dev to master.");
+                    instructionsLabel.setText("Instructions:\nThe \"git merge\" command makes changes from one\nbranch into another in Git,\ncombining the commit history and content.\nType in \"git merge dev master\" in the command line\nThis will merge the two branches\nto the master branch and will\nbring the files from dev to master.");
                     fourthLabel.setText("76d12");
                     fifth.setTransparency(1f);
                     connector4.setTransparency(1f);
@@ -248,7 +248,7 @@ public class LearningLevel implements Screen {
                     counter++;
                 } else if (counter == 10 && trimmed.equals("git merge dev master")) {
                     errorMessage = "Use the command \"git reset 76d12\" to\nreset the master branch to the previous commit.";
-                    instructionsLabel.setText("Instructions:\nType in \"git reset 76d12\" in the command line\nThis will reset the master branch to the previous\ncommit.");
+                    instructionsLabel.setText("Instructions:\nThe \"git reset\" command undoes commits\nby moving the branch pointer to a previous commit in Git,\nallowing you to discard changes.\nType in \"git reset 76d12\" in the command line\nThis will reset the master branch to the previous\ncommit.");
                     fourth.setTransparency(1f);
                     connector2.setTransparency(1f);
                     connector5.setTransparency(1f);
@@ -268,7 +268,7 @@ public class LearningLevel implements Screen {
                 } else if (counter == 12) {
                     output.setText("");
                     gameSkin.getFont("commodore-64").getData().setScale(1f);
-                    game.setScreen(new TransitionAnimation(game, new Maze(game, 3), "Welcome to the Git maze,\nFinish the maze to continue your\nmastery of Git"));
+                    game.setScreen(new TransitionAnimation(game, new Maze(game, 3), "Test your Git knowledge in an exhilarating maze!\nUse arrow keys to navigate, conquer challenges, and reach the final level.\nProve your expertise and emerge victorious!"));
                 } else {
                     output.setColor(Color.RED);
                     output.setText("Error:\n"+errorMessage);

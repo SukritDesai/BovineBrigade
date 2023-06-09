@@ -2,6 +2,7 @@ package com.git.game;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import sun.applet.Main;
 
 /**
  * The main class for the game. Creates the game and sets the screen to the splashscreen.
@@ -23,6 +24,7 @@ public class GitOdyssey extends Game implements ApplicationListener {
 	@Override
 	public void create () {
 		//Sets the skin for the game
+		//Source: https://github.com/czyzby/gdx-skins
 		gameSkin = new Skin(Gdx.files.internal("Skin/uiskin.json"));
 
 		//Sets the screen to the splashscreen

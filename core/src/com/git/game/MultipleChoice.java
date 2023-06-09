@@ -249,7 +249,7 @@ public class MultipleChoice implements Screen {
                 questionNum = 0;
             if (Character2.health==0) {
                 Character2.health = 3;
-                game.setScreen(new Popup(game, new MainMenu(game), "You have lost all your health!\nYou have been sent back to the main menu\nto learn more about Git!"));
+                game.setScreen(new TransitionAnimation(game, new MainMenu(game), "You have lost all your health!\nYou have been sent back to the main menu\nto learn more about Git!"));
             } else {
                 game.setScreen(new FinalLevel(game));
             }

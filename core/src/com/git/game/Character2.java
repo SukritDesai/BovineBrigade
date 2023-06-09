@@ -130,7 +130,7 @@ public class Character2 {
 
         //If the character goes off the screen, the user completes a multiple choice question
         if (x < -100) {
-            game.setScreen(new Popup(game, new MultipleChoice(game), "You were not fast enough!\nComplete the multiple choice question to not lose a heart!"));
+            game.setScreen(new Popup(game, new MultipleChoice(game), "Your speed fell short!\nTo prevent losing a heart, tackle the\nmultiple-choice question and complete it successfully!"));
         }
 
         // Update animation
@@ -171,17 +171,17 @@ public class Character2 {
     private void checkCollision(float x, float y) {
         //Checks for spikes collision
         if (getTileIdSpikes(x+18, y+32) != -1||getTileIdSpikes(x+40, y+32) != -1|| getTileIdSpikes(x+18, y+12) != -1||getTileIdSpikes(x+40, y+12) != -1){
-            game.setScreen(new Popup(game, new MultipleChoice(game), "You have hit a spike!\nComplete the multiple choice question to not lose a heart!"));
+            game.setScreen(new Popup(game, new MultipleChoice(game), "You have hit a spike!\nTo prevent losing a heart, tackle the\nmultiple-choice question and complete it successfully!"));
         }
 
         //Checks for ghost collision
         if (getTileIdGhost(x+18, y+32) != -1||getTileIdGhost(x+40, y+32) != -1|| getTileIdGhost(x+18, y+12) != -1||getTileIdGhost(x+40, y+12) != -1){
-            game.setScreen(new Popup(game, new MultipleChoice(game), "A ghost has caught you!\nComplete the multiple choice question to not lose a heart!"));
+            game.setScreen(new Popup(game, new MultipleChoice(game), "A ghost has caught you!\nTo prevent losing a heart, tackle the\nmultiple-choice question and complete it successfully!"));
         }
 
         //Checks for if the character reaches the exit
         if (getTileIdExit(x+18, y+32) != -1||getTileIdExit(x+40, y+32) != -1|| getTileIdExit(x+18, y+12) != -1||getTileIdExit(x+40, y+12) != -1){
-            game.setScreen(new TransitionAnimation(game, new MainMenu(game), "Congratulations, you have Completed the game and have mastered Git!\nUse your good coding practices in you future projects and career!"));
+            game.setScreen(new TransitionAnimation(game, new MainMenu(game), "Congratulations on completing the final level and mastering Git!\nYour skill and determination have paid off.\nEnjoy your well-deserved victory!\nThank you for playing our game!\nWe appreciate your time and hope you enjoyed the experience."));
         }
 
         //Checks for if the character is colliding with a wall on x axis
@@ -203,7 +203,7 @@ public class Character2 {
 
         //Checks for if the character is colliding with a hole tile type
         if (getTileId(x+18, y+40) == 40||getTileId(x+48, y+40) == 40){
-            game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nComplete the multiple choice question to not lose a heart!"));
+            game.setScreen(new Popup(game, new MultipleChoice(game), "You have fallen down a hole!\nTo prevent losing a heart, tackle the\nmultiple-choice question and complete it successfully!"));
         }
     }
 

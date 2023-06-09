@@ -239,8 +239,8 @@ public class Maze implements Screen {
                     } else if (numSnakes == 1 && characterRect.overlaps(wallRect)){
                         game.setScreen(new Popup(game, new Snake3(game), "You have encountered a snake!\nComplete the snake's challenge to continue."));
                     }
-                } else if (maze[row][col] == 3 && characterRect.overlaps(wallRect)) {// Collision with the end of the maze will trigger a popup screen to next screen
-                    game.setScreen(new TransitionAnimation(game, new FinalLevel(game), "You have Completed the maze!\nContinue to your final challenge."));
+                } else if (maze[row][col] == 3 && characterRect.overlaps(wallRect))  {// Collision with the end of the maze will trigger a popup screen to next screen
+                    game.setScreen(new TransitionAnimation(game, new FinalLevel(game), "Congratulations on conquering the intricate maze! But hold on tight,\nfor your final challenge awaits. Keep your\nwits sharp as you guide your character\nthrough this ultimate test of skill. Utilize the arrow keys to\nswiftly navigate the obstacles and remember, speed is of the essence!"));
                 }
             }
         }

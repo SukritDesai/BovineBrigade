@@ -23,6 +23,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
  */
 public class FinalLevel implements Screen {
     /** The map that is rendered */
+    //Tiles in game map for floor and walls from: https://pixelfrog-assets.itch.io/kings-and-pigs
     static TiledMap map = new TmxMapLoader().load("GameMap.tmx");
 
     /** The renderer for the map */
