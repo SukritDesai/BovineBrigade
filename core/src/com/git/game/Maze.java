@@ -15,7 +15,7 @@ import com.badlogic.gdx.math.Vector2;
  * The maze game screen. The player must navigate through the maze to reach the end.
  *
  * <h2>Course Info:</h2>
- * ICS4U0 with Krasteva, V.
+ * ICS4U0 with V. Krasteva
  *
  * @author Kevin Kolyakov, Sukrit Desai
  * @version 05.23.23

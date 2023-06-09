@@ -23,7 +23,7 @@ import static com.git.game.Maze.characterY;
  * Time Spent: 2 hour
  *
  * Modifications History:
- * @author Sukrit Desai
+ * @author Kevin Kolyakov
  * @version 6.9.23
  * Time Spent: 1 hours
  * Modifications: Added sprite sheet animation

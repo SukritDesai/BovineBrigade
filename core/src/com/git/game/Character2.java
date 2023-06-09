@@ -22,7 +22,7 @@ import static com.git.game.FinalLevel.*;
  * Time Spent: 3 hours
  *
  * Modifications History:
- * @author Kevin Kolyakov
+ * @author Sukrit Desai
  * @version 6.9.23
  * Time Spent: 2 hours
  * Modifications: Modified messages and changed the map layer collisions

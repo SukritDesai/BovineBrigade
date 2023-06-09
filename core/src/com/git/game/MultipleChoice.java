@@ -19,14 +19,14 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
  * Multiple choice screen for the platformer game
  *
  * <h2>Course Info:</h2>
- * ICS4U0 with Krasteva, V.
+ * ICS4U0 with V. Krasteva
  *
  * @author Kevin Kolyakov
  * @version 06.07.23
  * Time Spent: 3 hours
  *
  * Modifications History:
- * @author Kevin Kolyakov
+ * @author Sukrit Desai
  * @version 6.9.23
  * Time Spent: 30 minutes
  * Modifications: Modified messages

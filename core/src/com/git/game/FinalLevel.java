@@ -16,9 +16,9 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
  * Class that renders the final level of the game
  *
  * <h2>Course Info:</h2>
- * ICS4U0 with Krasteva, V.
+ * ICS4U0 with V. Krasteva
  *
- * @author Sukrit Desai, Kevin Kolyakov
+ * @author Sukrit Desai
  * @version 06.04.23
  * Time Spent: 2 hours
  *

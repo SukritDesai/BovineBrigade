@@ -25,7 +25,7 @@ import static com.git.game.GitOdyssey.gameSkin;
  * The LearningLevel class that implements the level where the user will be taught about Git.
  *
  * <h2>Course Info:</h2>
- * ICS4U0 with Krasteva, V.
+ * ICS4U0 with V. Krasteva
  *
  * @author Kevin Kolyakov, Sukrit Desai
  * @version 05.23.23

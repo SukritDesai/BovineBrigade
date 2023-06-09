@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
  * The main class for the game. Creates the game and sets the screen to the splashscreen.
  *
  * <h2>Course Info:</h2>
- * ICS4U0 with Krasteva, V.
+ * ICS4U0 with V. Krasteva
  *
  * @author Sukrit Desai
  * @version 05.23.23
