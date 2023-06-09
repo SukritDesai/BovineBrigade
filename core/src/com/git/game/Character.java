@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -15,7 +14,6 @@ import static com.git.game.Maze.characterY;
 public class Character {
 
     private final SpriteBatch batch;
-    public static int health = 3;
     private final Texture character;
     private final TextureRegion[][] frames;
     private Animation<TextureRegion> animation;
