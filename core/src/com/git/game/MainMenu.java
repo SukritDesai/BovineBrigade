@@ -38,7 +38,7 @@ public class MainMenu implements Screen {
 
     /**
      * Creates two buttons, one for the learning level and one for the game levels.
-     * @param aGame
+     * @param aGame the game that the screen is in
      */
     public MainMenu(Game aGame) {
         // Set up the stage
