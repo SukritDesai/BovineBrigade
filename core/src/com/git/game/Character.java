@@ -1,10 +1,3 @@
-/**
- * Represents a character in the game.
- * The character is controlled by user input and rendered on the screen.
- *
- * @author Sukrit Desai
- */
-
 package com.git.game;
 
 import com.badlogic.gdx.Gdx;
@@ -18,6 +11,16 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import static com.git.game.Maze.characterX;
 import static com.git.game.Maze.characterY;
 
+/**
+ * Represents a character in the game.
+ * The character is controlled by user input and rendered on the screen.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Sukrit Desai
+ * @version 05.29.23
+ */
 public class Character {
     private final SpriteBatch batch; // Used for rendering sprites
     private final Texture character; // The texture of the character
