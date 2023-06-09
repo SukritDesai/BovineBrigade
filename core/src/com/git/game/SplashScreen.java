@@ -89,7 +89,7 @@ public class SplashScreen implements Screen {
         if (progress >= 1f) {
             dispose();
             GitOdyssey game = (GitOdyssey) Gdx.app.getApplicationListener();
-            game.setScreen(new MainMenu(game));
+            game.setScreen(new TransitionAnimation(game, new MainMenu(game), "Hello young developer! You must be thinking, why should I learn about git,\nhow will this ever help me?\nLearning Git is essential for your coding journey.\nIt's like a superpower that lets you track changes,\ncollaborate with others, and manage projects effectively.\nBy gamifying Git, you'll have fun while mastering this valuable skill.\nIt boosts teamwork, safeguards your code,\nand enhances your job prospects.\nEmbrace the opportunity, level up your coding skills,\nand start your Git adventure today!\n"));
         }
     }
 
