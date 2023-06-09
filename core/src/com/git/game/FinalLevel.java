@@ -86,6 +86,7 @@ public class FinalLevel implements Screen {
 
         camera.update();//updates the camera
 
+        //Used https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_light&head=Human_male_light to create character
         character = new Character2("character.png");//creates the character
 
         FinalLevel.game = game;//sets the game

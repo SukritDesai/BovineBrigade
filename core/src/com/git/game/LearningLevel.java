@@ -32,18 +32,37 @@ import static com.git.game.GitOdyssey.gameSkin;
  * Time Spent: 10 hours
  */
 public class LearningLevel implements Screen {
-    private static final int SCREEN_WIDTH = 800; // Width of the screen
-    private static final int SCREEN_HEIGHT = 480; // Height of the screen
-    private String errorMessage = "Make sure to read the instructions of the level\ntype in git clone https://odyssey.git and\npress enter to continue."; // Error message to be displayed
+    private static final int SCREEN_WIDTH = 800;
 
-    private Stage stage; // The stage that holds the buttons
-    private Viewport viewport; // The viewport that holds the stage
-    private SpriteBatch spriteBatch; // The spritebatch that holds the textures
-    private ShapeRenderer shapeRenderer; // The ShapeRenderer that draws the shapes
-    private TextField consoleTextField; // The textfield that holds the user input
-    Label output, firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel, instructionsLabel; // The labels that hold the output and the instructions
-    Rectangle first, second, third, fourth, fifth, connector1, connector2, connector3, connector4, connector5, outline; // The rectangles that hold the output and the instructions
-    private int counter = 1; // The counter that keeps track of the number of times the user has tried to input the correct command
+    /** The height of the screen */
+    private static final int SCREEN_HEIGHT = 480;
+
+    /** The text that is displayed when the user enters the wrong command */
+    private String errorMessage = "Make sure to read the\ninstructions of the level\ntype in the \ngit add command correctly.";
+
+    /** the sage that holds all the actors */
+    private Stage stage;
+
+    /** the viewport that holds the stage */
+    private Viewport viewport;
+
+    /** the sprite batch that draws the stage */
+    private SpriteBatch spriteBatch;
+
+    /** the shape renderer that draws the shapes */
+    private ShapeRenderer shapeRenderer;
+
+    /** the text area that holds the console */
+    private TextField consoleTextField;
+
+    /** the labels for all the different parts of the level */
+    Label output, firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel, instructionsLabel;
+
+    /** the rectangles that represent the different parts of the level */
+    Rectangle first, second, third, fourth, fifth, connector1, connector2, connector3, connector4, connector5, outline;
+
+    /** the string that holds the number of times the user has gotten a correct input */
+    private int counter = 1;
     Game game; // The game that holds the screen
 
     /**

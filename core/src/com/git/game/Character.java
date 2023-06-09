@@ -29,13 +29,26 @@ import static com.git.game.Maze.characterY;
  * Modifications: Added sprite sheet animation
  */
 public class Character {
-    private final SpriteBatch batch; // Used for rendering sprites
-    private final Texture character; // The texture of the character
-    private final TextureRegion[][] frames; // A 2D array of texture regions for character animation frames
-    private Animation<TextureRegion> animation; // The animation for the character
-    private float stateTime; // The time elapsed since the start of the animation
-    private int row; // The current row index in the frames array
-    public float x = 100, y = 100; // The position of the character
+    /** The sprite batch that is used to render the character */
+    private final SpriteBatch batch;
+
+    /** The texture of the character */
+    private final Texture character;
+
+    /** The 2D array of texture regions for character animation frames */
+    private final TextureRegion[][] frames;
+
+    /** The animation for the character */
+    private Animation<TextureRegion> animation;
+
+    /** The time elapsed since the start of the animation */
+    private float stateTime;
+
+    /** The current row index in the frames array */
+    private int row;
+
+    /** The position of the character */
+    public float x = 100, y = 100;
 
     /**
      * Constructs a new Character object.

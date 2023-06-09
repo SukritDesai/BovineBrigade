@@ -23,14 +23,22 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class Maze implements Screen {
 
-    private static final int MAZE_CELL_SIZE = Gdx.graphics.getWidth()/20; // Size of each maze cell in pixels
-    private static final float CHARACTER_SPEED = 100f; // Character movement speed
+    /** The size of each maze cell in pixels */
+    private static final int MAZE_CELL_SIZE = Gdx.graphics.getWidth()/20;
 
-    private final Game game; // The game object used to switch between screens
-    private OrthographicCamera camera; // The camera object to render everything properly
-    private ShapeRenderer shapeRenderer; // The shape renderer object to draw shapes
+    /** the character movement speed */
+    private static final float CHARACTER_SPEED = 100f;
 
-    // definition of the maze layout
+    /** The game object used to switch between screens */
+    private final Game game;
+
+    /** The camera object to render everything properly */
+    private OrthographicCamera camera;
+
+    /** The shape renderer object to draw shapes */
+    private ShapeRenderer shapeRenderer;
+
+    /** definition of the maze layout */
     private int[][] maze = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
@@ -45,14 +53,26 @@ public class Maze implements Screen {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1}
     };
 
-    private int mazeWidth; // the width of the maze in cells
-    private int mazeHeight; // the height of the maze in cells
+    /** The width of the maze in cells */
+    private int mazeWidth;
 
-    private Character character;// the character object used to draw the character
-    public static float characterX = MAZE_CELL_SIZE; // the x position of the character
-    public static float characterY = MAZE_CELL_SIZE; // the y position of the character
-    private Vector2 characterVelocity; // the velocity of the character used to set new character positions
-    private final int numSnakes; // the number of snakes in the maze
+    /** The height of the maze in cells */
+    private int mazeHeight;
+
+    /** the character object used to draw the character */
+    private Character character;
+
+    /** the x position of the character */
+    public static float characterX = MAZE_CELL_SIZE;
+
+    /** the y position of the character */
+    public static float characterY = MAZE_CELL_SIZE;
+
+    /** the velocity of the character used to set new character positions */
+    private Vector2 characterVelocity;
+
+    /** the number of snakes in the maze */
+    private final int numSnakes;
 
 
     /**
@@ -137,8 +157,8 @@ public class Maze implements Screen {
         mazeWidth = maze[0].length;
         mazeHeight = maze.length;
 
+        //Used https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_light&head=Human_male_light to create character
         character = new Character("character.png");
-        // character.set(characterX, characterY, MAZE_CELL_SIZE/2, MAZE_CELL_SIZE/2);
         characterVelocity = new Vector2();
     }
 
