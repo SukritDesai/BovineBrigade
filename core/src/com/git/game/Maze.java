@@ -7,6 +7,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -37,6 +39,15 @@ public class Maze implements Screen {
 
     /** The shape renderer object to draw shapes */
     private ShapeRenderer shapeRenderer;
+
+    /** The sprite batch that is used to render the images */
+    private final SpriteBatch spriteBatch = new SpriteBatch();
+
+    /** The texture that is used to render the snakes */
+    private final Texture snakeTexture = new Texture("Snake.png");
+
+    /** The texture that is used to render the exit */
+    private final Texture exitTexture = new Texture("Exit.png");
 
     /** definition of the maze layout */
     private int[][] maze = {
@@ -176,7 +187,11 @@ public class Maze implements Screen {
         camera.update();
         shapeRenderer.setProjectionMatrix(camera.combined);
 
+        character.update(delta);
+        character.render();
+
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        spriteBatch.begin();
 
         // Render the maze walls
         for (int row = 0; row < mazeHeight; row++) {
@@ -187,19 +202,25 @@ public class Maze implements Screen {
                             MAZE_CELL_SIZE, MAZE_CELL_SIZE);
                 }
                 else if (maze[row][col] == 2) {
-                    shapeRenderer.setColor(Color.GREEN);
-                    shapeRenderer.rect(col * MAZE_CELL_SIZE, row * MAZE_CELL_SIZE,
-                            MAZE_CELL_SIZE, MAZE_CELL_SIZE);
+                    if (numSnakes == 1)
+                        spriteBatch.draw(snakeTexture, 1091, 384);
+                    else if (numSnakes == 2) {
+                        spriteBatch.draw(snakeTexture, 1091, 384);
+                        spriteBatch.draw(snakeTexture, 636, 513);
+                    }
+                    else if (numSnakes == 3) {
+                        spriteBatch.draw(snakeTexture, 247, 387);
+                        spriteBatch.draw(snakeTexture, 636, 513);
+                        spriteBatch.draw(snakeTexture, 1091, 384);
+                    }
+
                 }
                 else if (maze[row][col] == 3) {
-                    shapeRenderer.setColor(Color.RED);
-                    shapeRenderer.rect(col * MAZE_CELL_SIZE, row * MAZE_CELL_SIZE,
-                            MAZE_CELL_SIZE, MAZE_CELL_SIZE);
+                    spriteBatch.draw(exitTexture, 1110, 620);
                 }
             }
         }
-        character.update(delta);
-        character.render();
+        spriteBatch.end();
         // Render the character
         shapeRenderer.setColor(Color.GOLD);
         shapeRenderer.end();

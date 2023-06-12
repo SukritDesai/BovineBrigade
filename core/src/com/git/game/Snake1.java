@@ -196,11 +196,11 @@ public class Snake1 implements Screen {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             if (consoleTextField.getText().split("\n").length<1){//if the user has not entered anything
                 output.setColor(Color.RED);
-                output.setText("Error\nMake sure to read the instructions of the level\ntype in the git add\ncommand correctly");
+                errorMessage = "Use the git add command\nto add the README.md file\nto the current online\nrepository";
             }
             else if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {//if the user has entered the correct command
                 output.setColor(Color.GREEN);
-                errorMessage = "Make sure to read the\ninstructions of the level\ntype in the git commit\ncommand correctly";
+                errorMessage = "Use the git commit command\nto commit the README.md file\nto the current online\nrepository with the message\n\"first\"";
                 output.setText("Correct!");
                 counter++;
 

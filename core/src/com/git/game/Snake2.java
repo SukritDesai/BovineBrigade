@@ -206,12 +206,13 @@ public class Snake2 implements Screen {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             if (consoleTextField.getText().split("\n").length<1){
                 output.setColor(Color.RED);
+                errorMessage = "use the command\ngit branch \"dev\"\nto create a new branch";
                 output.setText(errorMessage);
 
                 //checks if the user has entered the correct command for the right counter
             } else if (counter == 0 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git branch \"dev\"")) {
                 output.setColor(Color.GREEN);
-                errorMessage = "please enter the git checkout\ncommand with the branch name";
+                errorMessage = "use the command\ngit checkout dev\nto checkout to the branch";
                 output.setText("Correct!");
                 third.setTransparency(1f);
                 thirdLabel.setText("dev");
@@ -221,28 +222,28 @@ public class Snake2 implements Screen {
                 //checks if the user has entered the correct command for the right counter
             } else if (counter == 1 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git checkout dev")) {
                 output.setColor(Color.GREEN);
-                errorMessage = "please enter the git add\ncommand followed\nby the file name";
+                errorMessage = "use the command\ngit add README.md\nto add the file";
                 output.setText("Well Done!");
                 counter++;
 
                 //checks if the user has entered the correct command for the right counter
             }else if (counter == 2 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git add README.md")) {
                 output.setColor(Color.GREEN);
-                errorMessage = "please enter the git commit\ncommand followed\nby the message";
+                errorMessage = "use the command\ngit commit -m \"readme\"\nto commit the file";
                 output.setText("Correct!");
                 counter++;
 
                 //checks if the user has entered the correct command for the right counter
             }else if (counter == 3 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git commit -m \"readme\"")) {
                 output.setColor(Color.GREEN);
-                errorMessage = "please enter the git push\ncommand";
+                errorMessage = "use the command\ngit push\nto push the file";
                 output.setText("Well Done!");
                 counter++;
 
                 //checks if the user has entered the correct command for the right counter
             }else if (counter == 4 && consoleTextField.getText().split("\n")[consoleTextField.getText().split("\n").length-1].trim().equals("git push")) {
                 output.setColor(Color.GREEN);
-                errorMessage = "please enter the git merge\ncommand followed by\nthe branch names";
+                errorMessage = "use the command\ngit merge dev master\nto merge the branch";
                 output.setText("Correct!");
                 fourthLabel.setText("76d12");
                 fifth.setTransparency(1f);

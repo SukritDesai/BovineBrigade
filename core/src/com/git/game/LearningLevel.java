@@ -147,7 +147,7 @@ public class LearningLevel implements Screen {
         stage.addActor(fifthLabel);
 
         // Create and position the instructions label in the top right
-        instructionsLabel = new Label("Instructions:\nWelcome to the Git Odyssey. The window \nbelow this one is your command line. Enter \nthe git commands that I explain in that \nbox. The window to your left contains \nthe visualization for that command\nUse git init in the command line to\ninitialize the repository in Git\nPress enter in the console to continue", gameSkin, "default");
+        instructionsLabel = new Label("Instructions:\nWelcome to the Git Odyssey. The window \nbelow this one is your command line. Click in the box\nthen enter the git commands that I explain in that\nbox. The window to your left contains \nthe visualization for that command\nUse git init in the command line to\ninitialize the repository in Git\nPress enter in the console to continue", gameSkin, "default");
         instructionsLabel.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT - instructionsLabel.getHeight()+20);
         instructionsLabel.setFontScale(0.5f);
 

@@ -201,7 +201,7 @@ public class Snake3 implements Screen {
 
         // Check if the user presses enter in the console text field
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) { // If the user presses enter
-            String errorMessage = "Make sure to read the\ninstructions of the level\ntype in the git reset\ncommand correctly.";
+            String errorMessage = "use the command\ngit reset 9e78i\nto reset the commit\nto the desired commit";
             if (consoleTextField.getText().split("\n").length<1){// If the user has not entered anything errortraps
                 output.setColor(Color.RED);
                 output.setText("Error:\n"+ errorMessage);
