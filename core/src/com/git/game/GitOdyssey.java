@@ -28,7 +28,7 @@ public class GitOdyssey extends Game implements ApplicationListener {
 		gameSkin = new Skin(Gdx.files.internal("Skin/uiskin.json"));
 
 		//Sets the screen to the splashscreen
-		setScreen(new SplashScreen());
+		setScreen(new Maze(this, 3));
 	}
 
 	public void render() {getScreen().render(Gdx.graphics.getDeltaTime());}

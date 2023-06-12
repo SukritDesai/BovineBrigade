@@ -203,15 +203,15 @@ public class Maze implements Screen {
                 }
                 else if (maze[row][col] == 2) {
                     if (numSnakes == 1)
-                        spriteBatch.draw(snakeTexture, 1091, 384);
+                        spriteBatch.draw(snakeTexture, 1101, 384);
                     else if (numSnakes == 2) {
-                        spriteBatch.draw(snakeTexture, 1091, 384);
-                        spriteBatch.draw(snakeTexture, 636, 513);
+                        spriteBatch.draw(snakeTexture, 1101, 384);
+                        spriteBatch.draw(snakeTexture, 646, 513);
                     }
                     else if (numSnakes == 3) {
-                        spriteBatch.draw(snakeTexture, 247, 387);
-                        spriteBatch.draw(snakeTexture, 636, 513);
-                        spriteBatch.draw(snakeTexture, 1091, 384);
+                        spriteBatch.draw(snakeTexture, 257, 387);
+                        spriteBatch.draw(snakeTexture, 646, 513);
+                        spriteBatch.draw(snakeTexture, 1101, 384);
                     }
 
                 }
