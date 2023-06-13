@@ -44,7 +44,7 @@ public class Maze implements Screen {
     private final SpriteBatch spriteBatch = new SpriteBatch();
 
     /** The texture that is used to render the snakes */
-    private final Texture snakeTexture = new Texture("Snake.png");
+    private final Texture snakeTexture = new Texture("snake.png");
 
     /** The texture that is used to render the exit */
     private final Texture exitTexture = new Texture("Exit.png");
